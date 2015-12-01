@@ -45,6 +45,7 @@ En seulement 4 étapes !
 
 ```Bash
 cd "Le chemin vers le dossier cloné"
+git add .
 git pull https://github.com/matEhickey/Hop3x_2
 ```
 **Rep tant que "Travail non finit"**
