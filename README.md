@@ -45,7 +45,6 @@ En seulement 4 étapes !
 
 ```Bash
 cd "Le chemin vers le dossier cloné"
-git add .
 git pull https://github.com/matEhickey/Hop3x_2
 ```
 **Rep tant que "Travail non finit"**
@@ -54,6 +53,7 @@ git pull https://github.com/matEhickey/Hop3x_2
 
 3.Commiter le changement, càd mise à jour locale (Dire la mise à jour qu'on a effectué lors de nos dernières actions"
 ```Bash
+git add .
 git commit -a
 ```
 **Fin rep**
