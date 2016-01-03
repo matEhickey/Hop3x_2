@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSSmobile optimisation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    
+    <!-- Fonts awesome-->
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    
+    
+    <!-- CodeMirror-->
+    	<link rel=stylesheet href="codemirror/lib/codemirror.css">
+	<link rel=stylesheet href="codemirror/doc/docs.css">
+	<script src="codemirror/lib/codemirror.js"></script>
+<!-- 	<script src="codemirror/mode/xml/xml.js"></script>
+	<script src="codemirror/mode/javascript/javascript.js"></script>
+	<script src="codemirror/mode/css/css.js"></script>
+	<script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+-->
+	<script src="codemirror/mode/clike/clike.js"></script>
+	<script src="codemirror/mode/python/python.js"></script>
+	<script src="codemirror/addon/edit/matchbrackets.js"></script>
+	<!-- <script src="codemirror/doc/activebookmark.js"></script> -->
+    
+    
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+    
+    
+    
+    
+
+</head>
+
+<body>
+
+
+<div class="container-fluid" align="center" style="padding-top:2%;">
+
+		<div class="row">
+		<!-- Panneau horizontal du dessus, fonctions importantes-->
+		<ol class="list-inline">
+			<li><button class="btn btn-primary">Nouveau</button></li>
+			<li><button class="btn btn-primary">Ouvrir</button></li>
+			<li><button class="btn btn-primary">Compiler</button></li>
+			<li><button class="btn btn-primary">Executer</button></li>
+			<li><input type="text" class="form-control" id="search-button" placeholder="Search"></li>
+			<li><input type="text" class="form-control" id="replace_button" placeholder="Replace"></li>
+			<li><button class="btn btn-primary">Remplacer</button></li>
+			
+		</ol>
+		</div>
+		<hr>
+		<div class="row">
+		<!-- Panneau central, avec le panneau de navigation des fichiers, l'editeur de texte, et le menu de tests-->
+			<div class="col-md-2">
+				<!-- fichiers-->
+				<ol style="list-style-type:none;">
+					<li><button class="btn btn-primary btn-lg btn-block">fichier 1</button></li>
+					<li><button class="btn btn-primary btn-lg btn-block">fichier 2</button></li>
+					<li><button class="btn btn-primary btn-lg btn-block">fichier 3</button></li>
+				</ol>
+			</div>
+			
+			<div class="col-md-8">
+				<!-- editeur -->			
+				
+					
+					 <div  align="left">
+						  <textarea  id="editeur">
+def createD(f,table,server,user,password,db):
+    f.write("function delete"+table.title()+"($id){\n")
+    createConnection(f,server,user,password,db)
+    f.write("\t$requete =\"DELETE FROM `"+table+"` WHERE `id` =\".$id;\n")
+
+    f.write("\tif($conn->query($requete) === TRUE) {\n")
+    f.write("\t\techo \"<h3>Les modifications ont ete prises en compte</h3>\";\n")
+    f.write("\t}\n")
+    
+    f.write("\telse{\n")
+    f.write("\t\techo \"<h3>Erreur, veuillez recommencer</h3>\";\n")
+    f.write("\t}\n")
+    
+    f.write("\t$conn->close();\n")
+						  </textarea>
+					</div>
+				
+				
+				
+					<script>
+					
+					
+						
+
+
+					
+						function print_debug(e){
+							document.getElementById("debugView").innerHTML += e;			
+						}
+						function println_debug(e){
+							document.getElementById("debugView").innerHTML += e + "\n# ";			
+						}
+						
+					
+					
+						function handler(editor,event){
+							//preparation et envoi de l ajax
+							
+								//formate l evenement, grace aux argument de event, l id de l utilisateur, l id du fichier
+						
+							println_debug("event at timestamp "+(Date.now()-begin)+"  : ");
+							print_debug("    from line "+event.from.line+"  col "+event.from.ch);
+							println_debug("    to line "+event.to.line+"  col "+event.to.ch);
+							//console.log(event);
+							//console.log(Object.getOwnPropertyNames(event.removed).toString());
+							
+							
+							print_debug("    text("+event.text.length+"): \'"+event.text+"\'");
+							println_debug("    removed("+event.removed.length+"): \'"+event.removed+"\'");
+						}
+						
+					    var editor = CodeMirror.fromTextArea(document.getElementById("editeur"), {
+					      mode: {name: "python",
+					               version: 3,
+					               singleLineStringErrors: false},
+					        lineNumbers: true,
+					        indentUnit: 4,
+					        matchBrackets: true
+					    });
+					    
+					    begin = Date.now();
+					    editor.on('change', function(ed,ev){handler(ed,ev)});
+					   
+					  </script>
+				
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="col-md-2">
+				<!-- tests -->
+				<h3>Tests</h3>
+				<ol style="list-style-type:none;">
+					<li><button class="btn btn-primary btn-lg btn-block">Test 1</button></li>
+					<li><button class="btn btn-primary btn-lg btn-block">Test 2</button></li>
+					<li><button class="btn btn-primary btn-lg btn-block">Test 3</button></li>
+				</ol>
+			</div>
+		</div>
+		
+		
+		
+		<div class="row">
+		
+		<!-- Menu debug et output du programme -->
+			<!--
+			<div class="col-md-3">
+			</div>
+			-->
+			<div class="col-md-6">
+				<h3>Terminal</h3>
+				<textarea disabled class="form-control">User: ~/Documents/Projet1/  :  </textarea>
+			</div>
+			
+			<div class="col-md-6">
+				<h3>Debug (devellopement/tests)</h3>
+				<textarea disabled class="form-control" id="debugView" rows=10># </textarea>
+				<a href="view2.html"><button class="btn btn-primary btn-lg btn-block">Retour aux sessions</button></a>
+			</div>
+			
+			
+		
+		</div>
+		
+		
+		
+
+
+</div>
+
+</body>
+
+
+</html>
