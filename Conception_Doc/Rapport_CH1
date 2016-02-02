@@ -1,0 +1,127 @@
+Chapitre 1 Contexte du projet
+Dans le cadre de l'unité de formation "conception et développement logiciel" nous avons effectué un projet étudiant encadré par M. Pierre Jacoboni et M. Cristophe Desprès. Pour y aboutir nous avons adopté la méthodologie agile de gestion de projet qui est "SCRUM". Dans ce chapitre nous présentons le projet "Hop3X" ainsi que la méthodologie de gestion adoptée durant son élaboration.
+
+1.1 Présentation du projet
+(Problématique, recherche de solution, réaliser et tester)
+********* encore à reformuler
+
+*** Problématique : évaluer correctement ses étudiants pose un prblm aux enseignants => ils ne pourront pas suivre toutes les activités simultanément de tous les étudiants dans une slle de TP.
+
+*** Présentation de l'existant
+
+IDE Multi-langage (C, Java, Ruby, Python, NxC...) permettant la réalisation et le suivi à distance des TP d'informatique de l'UFR Sciences de L'Université du Maine.
+Hop3x est composé de 3 applications:
+-Hop3x étudiant: permet aux étudiants d'éditer, compiler et exécuter leurs programmes . Il permet également d'appeler leur enseignant en cas de besoin.
+-Hop3x enseignant: permet aux enseignants de visualiser en temps réel la progression des élèves en travaillant sur leurs TP
+-Hop3x serveur: collecte les pistes d'interaction des participants à la session d'apprentissage et les enregistre comme événements hop3x.
+
+*** Solution: Parler du logiciel HOP3X existant...
+=> opter vers une version full web de hop3x
+Ce programme est un projet étudiant dans le cadre du cours "Conception et développement logiciel" du Master 1 Ingénierie des Systèmes Intelligents de l'université du Maine, et a été proposé par M.Jacoboni et M.Desprès, enseignants-chercheurs à l'Institut Informatique Claude Chappe (UFR Sciences).
+
+Le programme doit être un site web où les éleves ont leurs fichiers sur le cloud, et doivent faire passer à leurs programmes des tests pour qu'ils soient conformes aux tests réalisés par leurs professeurs.
+
+Les enseignants, eux pourront visualiser en temps réel la progression des éleves sur leurs fichiers, et des informations seront collectées pour fournir une représentation graphique au professeur.
+
+1.2 Méthode agile SCRUM
+
+	1.2.1 Introduction
+
+	Les méthodes dites "agiles" ont trouvé leur place au sein des entreprises, et principalement des startups. Cela permet une gestion réactive, incrémentale et itérative des différents projets de l’entreprise. La plus connue de ces méthodes est très certainement la méthode "SCRUM". [Réf: www.dynamique-mag.com/]
+
+	1.2.2 Principe de la méthode SCRUM
+
+	La méthode Scrum est une méthode agile, créée en 2002, dont le nom est un terme emprunté au rugby qui signifie " la mêlée ". Elle s’appuie sur le découpage des projets en itérations encore nommées " sprints ". Un sprint peut avoir une durée qui varie généralement entre deux semaines et un mois.
+	Avant chaque sprint, les tâches sont estimées en temps et en complexité à l’aide de certaines pratiques comme le " planning poker " (voir plus de détails dans l’annexe B), une manière ludique de chiffrer la complexité des tâches ou évolutions à l’aide de cartes à l’instar du célèbre jeu dont le nom est repris. Ces estimations permettent à la fois de planifier les livraisons, mais aussi d’estimer le coût de ces tâches auprès du client. Les fonctionnalités (encore appelées " user stories ") qui font l’objet d’un sprint constituent ce que l’on appelle un " sprint backlog " (voir plus de détails dans l’annexe B) du produit éventuellement livrable à la fin du sprint. Il est nécessaire de distinguer le sprint backlog du " product backlog " qui lui correspond à l’ensemble des fonctionnalités attendues pour le produit sur l’ensemble des sprints.
+	La méthode Scrum est aussi caractérisée par une " mêlée" quotidienne, encore appelée " morning " ou " stand-up ", dans laquelle les collaborateurs (chefs de projets, développeurs et responsables fonctionnels) indiquent tour à tour les tâches qu’ils ont effectuées la veille, les difficultés rencontrées et enfin ce sur quoi ils vont poursuivre leur travail le jour suivant. Cela permet d’évaluer l’avancement du projet, de mobiliser des ressources là où cela est le plus nécessaire, mais aussi de venir en aide aux collaborateurs rencontrant des difficultés lorsque celles-ci ont déjà été rencontrées auparavant par d’autres membres de l’équipe.
+	Comme toute méthode agile, SCRUM respecte les valeurs suivantes.
+* L’équipe et la communication avant les outils et processus : dans la vision agile, l’équipe est bien plus importante que les outils ou les procédures de fonctionnement. Il est préférable d’avoir une équipe soudée et dont les membres communiquent entre eux, composée de développeurs de niveaux différents, plutôt qu’une équipe composée d’experts qui travaillent de manière isolée. La communication
+est donc une notion fondamentale dans un contexte de développement agile.
+
+* L’application avant la documentation : il est primordial que le projet fonctionne, c’est la priorité avant toute chose. La documentation technique et les autres outils (de tests, de reporting) constituent une aide précieuse, mais ne sont pas une fin en soi. Une documentation précise est utile comme moyen de communication. Il est parfois préférable de simplement commenter abondamment le code lui-même, et surtout de transférer la totalité des compétences et connaissances du métier à l’ensemble des collaborateurs de l’équipe.
+
+* La collaboration avant la négociation : le client doit être impliqué dans le développement. Le fournisseur ne doit pas se contenter de négocier un contrat au début du projet, puis de refuser l’évolution des besoins du client. Le client doit collaborer avec l’équipe et fournir des comptes rendus réguliers sur l’adaptation du logiciel à ses attentes.
+
+* L’acceptation du changement et la flexibilité avant la planification : la planification initiale et la structure du projet doivent être flexibles afin de permettre les évolutions attendues par le client. En effet, les premières livraisons du projet donnent très souvent suite à des demandes d’évolution. [Réf: www.ineumann.developpez.com/]
+
+	1.2.3 Les rôles dans SCRUM [Réf : www.pentalog.fr/]
+	
+	La méthodologie SCRUM fait intervenir 3 rôles principaux qui sont :
+
+– Product owner : Dans la majorité des projets, le responsable produit (product owner) est le responsable de l’équipe projet client. C’est lui qui va définir, prioriser la liste des fonctionnalités du produit, et choisir la date et le contenu de chaque sprint sur la base des valeurs (charges) qui lui sont communiquées par l’équipe.
+
+– ScrumMaster : Véritable facilitateur sur le projet, il veille à ce que chacun peut travailler au maximum de ses capacités en éliminant les obstacles et en protégeant l’équipe des perturbations extérieures. Il porte également une attention particulière au respect des différentes phases de SCRUM.
+
+– Equipe : d’une taille allant de 4 à 10 personnes en général, l’équipe regroupe tous les rôles habituellement nécessaires à un projet, à savoir l’architecte, le concepteur, le développeur, le testeur, etc. L’équipe s’organise elle-même et elle reste inchangée pendant toute la durée d’un sprint.
+
+	1.2.4 Les réunions dans SCRUM [Réf : www.pentalog.fr/]
+
+	Concrètement, cette méthode nécessite 4 types de réunions :
+– Les réunions quotidiennes : chaque jour, toute l’équipe se réunit, généralement debout, pendant 15 minutes environ pour répondre aux 3 questions suivantes : qu’ai-je fait hier ?, Que vais-je faire aujourd’hui ? Y a-t-il un obstacle gênant aujourd’hui ?
+– Les réunions de planifications : au cours de cette réunion, l’équipe de développement sélectionne les éléments prioritaires du " Product Backlog " (liste ordonnancée des tâches fonctionnelles et non fonctionnelles du projet) qu’elle pense pouvoir réaliser au cours du sprint (en accord avec le " Product Owner ").
+– Les réunions de revue de travail : lors de ces réunions, chacun présente ce qu’il a fait pendant la durée du sprint. Une démonstration des nouvelles fonctionnalités ou de présentation de l’architecture est organisée. Il s’agit d’une réunion informelle de 2 heures environ à laquelle participe toute l’équipe.
+– Les réunions de rétrospectives : à chaque fin de sprint, l’équipe fait le point sur ce qui a bien fonctionné et sur ce qui a moins bien fonctionné. Lors de cette réunion d’une durée de 15 à 30 minutes où chacun est invité et parle en son nom, un vote de confiance est organisé pour décider des améliorations à apporter.
+
+	1.2.5 L’initialisation d’un sprint [Réf www.ineumann.developpez.com/]
+
+	Les différentes étapes de l’initialisation d’une itération (ou sprint) sont animées et sous la responsabilité du scrum master.
+* Le sprint backlog
+Le sprint backlog est un ensemble de user stories choisies et priorisées (chaque story doit avoir un niveau de priorité) par le product owner. Le scrum master doit lui s’assurer de bien recevoir un backlog de la part du product owner au début de chaque itération afin de planifier un chiffrage avec le reste de l’équipe côté maîtrise d’ouvrage. Le backlog ne concerne pas forcément un module applicatif en particulier, mais peut
+couvrir des aspects fonctionnels de plusieurs modules potentiellement complètement indépendants, mais faisant partie du périmètre du projet.
+* Planning poker
+Il s’agit ici du chiffrage des user stories en points d’efforts (ou niveau de complexité). Ce chiffrage se fait à l’aide d’un jeu de cartes (d’où le nom " poker ") dont les nombres sont ceux de la suite de Fibonnaci, chaque carte représentant un nombre en points d’efforts.
+Les personnes qui assistent à ce chiffrage sont :
+– le Scrum master qui planifie et anime ce chiffrage et qui s’assure que la totalité des points d’efforts décidés en fin de chiffrage n’excède pas le nombre de points d’efforts par itération qui lui a été contractualisé avec le client. Dans le cas ou ce nombre de points d’efforts n’a pas été atteint, le product owner peut décider de rajouter une ou plusieurs user stories au backlog qui seront chiffrées assez vite de la même manière. Dans le cas où ce nombre est dépassé, le scrum master peut demander au product owner de retirer certaines tâches du backlog  (généralement les moins prioritaires)
+– les collaborateurs MOE (pour " maîtrise d’œuvre ") qui eux sont les seuls à être habilités à fournir un chiffre en points d’efforts. Chaque développeur utilise un jeu de cartes pour fournir un chiffre en points d’efforts. L’utilisation du jeu de cartes leur permet de ne pas être influencés par les autres développeurs au moment du choix du niveau de complexité
+– le product owner qui est là pour s’assurer que les besoins et l’ensemble des users story ont bien été comprises par l’ensemble de l’équipe et pour répondre aux questions. Il peut être accompagné par un responsable fonctionnel.
+
+
+Pour qu’une tâche ait un chiffrage final, il faut que tous les développeurs votent et soient unanimes sur la complexité de la story. Au premier chiffrage, les participants qui mettent le plus petit et le plus gros nombre de points d’efforts devront justifier leur choix devant le reste de l’équipe et les développeurs, cela permettra à tout le monde de voir s’ils ont oublié de prendre en compte certains paramètres dans leur chiffrage (le temps passé sur les tests par exemple). Les " sachants " (personnes ayant le plus la maîtrise des modules applicatifs concernés par les stories) doivent aussi s’assurer que les autres développeurs aient bien compris ce que représentait l’évolution en terme d’effort à produire.
+
+	Au second chiffrage, il arrive régulièrement que l’ensemble des développeurs soient d’accord sur le même chiffre ou bien aient des chiffres assez proches, lorsque ce n’est pas le cas, c’est le chiffre le plus élevé qui est retenu. Le scrum master est chargé de noter chaque chiffre pour chaque story et de rappeler aux développeurs le déroulement du planning poker ainsi que le jalon choisi (une complexité 3 pour un webservice ainsi que les tests qui vont avec par exemple).
+
+* Le découpage en tâches
+	Le découpage en tâches est l’étape qui survient juste après le planning poker. Il s’agit cette fois de découper chaque story en tâches les plus élémentaires possible afin de mieux répartir le travail sur les différents membres de l’équipe et de mieux évaluer l’avancement des stories en évitant les effets tunnel.
+	Les sous-tâches des user-stories sont ensuite chiffrées par les développeurs en heure/homme selon les mêmes règles que le planning poker (deux tirages, prises en compte du chiffre le plus fort au second tirage). 
+	Le scrum master se charge ensuite de saisir les fiches pour chacune des sous-tâches dans l’outil de suivi du projet (Jira, HP ALM, Mantisse ou autres) et de créer des post-it pour le " scrum board " (qui peut être également présenté sous forme virtuelle sur certains projets).
+	Le scrum board est divisé en trois colonnes : Les tâches à réaliser, les tâches en cours et les tâches terminées.
+Sur chaque post-it correspondant à une sous-tâche se trouvent deux indicateurs qui
+sont mis à jour quotidiennement par les développeurs :
+– le temps consommé qui représente la totalité des heures passées sur la tâche
+– le " reste à faire " exprimé en heure/homme, il s’agit de la différence entre le chiffre en heure/homme estimé au départ et le temps consommé.
+	Ces indicateurs permettent de voir si la tâche a été sous-chiffrée ou sur chiffrée. La somme de l’ensemble des temps consommés sur chaque tâche divisée par la somme des chiffres estimés lors du découpage permet de déduire la " vélocité " (parfois appelée " célérité "). La vélocité doit idéalement être proche de 1 et permet de savoir :
+– que l’équipe sur-chiffre lorsqu’elle est inférieure à 1
+– que l’équipe sous-chiffre lorsqu’elle est supérieure à 1
+– que l’équipe est proche de la réalité dans ses chiffrages lorsqu’elle est proche de 1.
+La vélocité permet aussi de chiffrer les user stories en jour/homme ou en heure/homme en la multipliant avec le nombre de points d’efforts (il s’agit d’un réajustement en quelque sorte). Il faut donc fixer une première vélocité (1 point d’effort = 1 jour/homme par exemple) lors du premier sprint qui sera revu à chaque itération.
+
+* Retour d’expérience (REX) sur le sprint précédent
+	Cette réunion se fait également en chaque début de sprint et permet de faire le point avec l’ensemble des collaborateurs sur ce qui s’est bien passé sur la ou les itérations précédentes, ce qui est à améliorer et ce qui est à faire. Une fois l’ensemble des points positifs à améliorer et à faire recensés, chacun des membres de l’équipe va voter pour trois de ces points parmi ceux qui sont à améliorer
+ou à faire. Les trois points qui auront obtenu le plus de votes seront à prendre en compte durant la prochaine itération, il peut s’agir d’améliorer la couverture de tests sur un des modules, mettre en place de nouveaux outils...
+
+	1.2.6 Justification du choix de SCRUM
+
+	Dans la plupart des projets, il est souvent très difficile d’établir dès le début des paramètres stricts et clairs. D’autant qu’il est fréquent que le client décide de rajouter ou supprimer une fonctionnalité en cours de projet ou qu’il a tout simplement du mal à exprimer son besoin.
+	Afin de prendre en considération les particularités de ce domaine il est plus judicieux d’utiliser des méthodes de travail plus souples et qui permettent de traiter plus facilement les changements.
+	La méthode Agile permet également au client d’avoir une visibilité régulière de l’avancement du projet et ainsi d’éviter pour lui toute mauvaise surprise lors de l’achèvement du projet : "l’effet tunnel" " ce qui est si fréquent dans les développements suivant une approche classique.
+Le client est également maître du déroulement du projet c’est à dire qu’il peut arrêter à tout moment et ne payer seulement que le travail effectué. [Réf www.semaweb.fr/]
+
+SCRUM se distingue des autres méthodes de développement par ses avantages qui font de ce procédé une réponse pragmatique aux contraintes actuelles des chefs de produits :
+– Méthode itérative et incrémentielle : cela permet d’éviter "l’effet tunnel", c’est-à-dire le fait de ne voir le résultat qu’à la livraison finale et rien ou presque rien pendant toute la phase de développement, si fréquent dans les développements avec le cycle en V.
+– Adaptabilité maximale pour du développement de produits et d’applications : la composition séquentielle du contenu des sprints permet d’ajouter une modification ou une fonctionnalité qui n’était pas prévue au départ. C’est principalement cela qui rend cette méthode "agile".
+– Méthode participative : chaque membre de l’équipe est invité à s’exprimer et il peut participer à toutes les décisions prises sur le projet. Il est donc plus impliqué et plus motivé.
+– Augmentation de la communication : en travaillant dans la même salle de développement, ou en étant connectée avec différents moyens de communication, l’équipe peut communiquer facilement et échanger sur les obstacles afin de les supprimer le plus tôt possible.
+– Maximisation de la coopération : les échanges quotidiens entre le client et l’équipe " Pentalog " permettent un rapprochement et une entraide se met logiquement en place.
+– Augmentation de la productivité : en supprimant certaines "contraintes" des méthodes classiques comme la documentation ou la formalisation exagérée, SCRUM permet d’augmenter la productivité de l’équipe. En ajoutant à cela la qualification de chaque module permettant d’en déterminer un chiffrage, chacun peut se positionner par rapport à la productivité moyenne de l’équipe.[Réf www.pentalog.fr/]
+
+	Au regard de la complexité croissante dont les projets innovants font preuve, la méthode SCRUM paraît être la meilleure solution pour répondre aux exigences d’exécution de ces derniers, ce qui explique le succès qu’elle rencontre aujourd’hui.
+
+	1.2.7 Conclusion
+
+	Le succès de cette méthode se base sur le respect des rôles de chacun, des cycles de travail courts et des différentes réunions. Respecter ces règles octroie dans le même temps une grande autonomie et liberté à l’ensemble de l’équipe. Dans le cadre de ce projet, l’équipe était formée d’une équipe de 5 étudiants dont un est le scrum master qui a veillé à ce que la méthode SCRUM soit respectée et un est un chef documentaliste qui sera le plus responsable de l'équipe sur la documentation.
+
+1.3 Conclusion
+
+	Tout le long de ce chapitre, nous avons situé notre projet dans son contexte général. Nous avons, pour ce fait, spécifié son cadre et la méthodologie de gestion avec laquelle il a été élaboré. Ensuite, nous avons mis l’accent sur la problématique qui se pose sur les besoins des enseignants en terme de l'évaluation de leurs étudiants notamment dans les séances de TP. Maintenant, nous pouvons entamer la phase suivante
+qui consistera à faire détailler la solution proposée par ce projet pour ce problème quotidien.
+
