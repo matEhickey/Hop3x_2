@@ -1,0 +1,86 @@
+[07-Jan-2016 00:50:43 Europe/Paris] PHP Warning:  include_once(requetes.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:50:43 Europe/Paris] PHP Warning:  include_once(): Failed opening 'requetes.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:52:11 Europe/Paris] PHP Warning:  include_once(requetes.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:52:11 Europe/Paris] PHP Warning:  include_once(): Failed opening 'requetes.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:52:39 Europe/Paris] PHP Warning:  include_once(requetes.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:52:39 Europe/Paris] PHP Warning:  include_once(): Failed opening 'requetes.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:53:18 Europe/Paris] PHP Warning:  include_once(requetes.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:53:18 Europe/Paris] PHP Warning:  include_once(): Failed opening 'requetes.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 6
+[07-Jan-2016 00:55:38 Europe/Paris] PHP Parse error:  syntax error, unexpected '=' in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 12
+[07-Jan-2016 00:56:31 Europe/Paris] PHP Parse error:  syntax error, unexpected '=' in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 12
+[07-Jan-2016 00:57:09 Europe/Paris] PHP Parse error:  syntax error, unexpected '=' in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 12
+[07-Jan-2016 00:57:19 Europe/Paris] PHP Parse error:  syntax error, unexpected '=' in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 12
+[07-Jan-2016 01:08:18 Europe/Paris] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 17
+[07-Jan-2016 01:08:33 Europe/Paris] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 17
+[07-Jan-2016 01:08:45 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 17
+[07-Jan-2016 01:08:48 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 17
+[07-Jan-2016 01:09:09 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 16
+[07-Jan-2016 01:09:09 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 16
+[07-Jan-2016 01:09:10 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 16
+[07-Jan-2016 01:09:11 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 16
+[07-Jan-2016 01:09:11 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 16
+[07-Jan-2016 01:15:19 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 12
+[07-Jan-2016 01:30:15 Europe/Paris] PHP Parse error:  syntax error, unexpected 'print' (T_PRINT) in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 22
+[07-Jan-2016 01:40:50 Europe/Paris] PHP Parse error:  syntax error, unexpected '$serverName' (T_VARIABLE), expecting '{' in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 71
+[07-Jan-2016 01:43:24 Europe/Paris] PHP Parse error:  syntax error, unexpected 'as' (T_AS) in /home/mathi006/public_html/hop3x/back-side/getEventFile.php on line 5
+[09-Jan-2016 18:09:34 Europe/Paris] PHP Fatal error:  Call to a member function query() on a non-object in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 38
+[09-Jan-2016 18:09:57 Europe/Paris] PHP Fatal error:  Call to undefined method PDO::close() in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 54
+[09-Jan-2016 18:26:10 Europe/Paris] PHP Parse error:  syntax error, unexpected '*' in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 55
+[09-Jan-2016 19:00:37 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'invalid data source name' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:90
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(90): PDO->__construct('0', 'mathi006_bdd', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEventFile.php(4): getEvenementhop3xFile('0')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 90
+[09-Jan-2016 19:14:31 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:8
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(8): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363269594', '0', 0, 0, 0, 0, 'f', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 8
+[09-Jan-2016 19:17:01 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:8
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(8): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363420341', '0', 0, 0, 0, 0, 'c', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 8
+[09-Jan-2016 19:17:55 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:8
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(8): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363474064', '0', 0, 0, 0, 0, ' ', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 8
+[09-Jan-2016 19:20:57 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:8
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(8): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363656167', '0', 0, 0, 0, 0, ' ', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 8
+[09-Jan-2016 19:22:15 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:8
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(8): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363734131', '0', 0, 0, 0, 0, ' ', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 8
+[09-Jan-2016 19:25:54 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:7
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(7): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363953452', '0', 0, 0, 0, 0, 'f', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 7
+[09-Jan-2016 19:26:40 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'mathi006'@'localhost' (using password: YES)' in /home/mathi006/public_html/hop3x/back-side/eventsController.php:8
+Stack trace:
+#0 /home/mathi006/public_html/hop3x/back-side/eventsController.php(8): PDO->__construct('mysql:host=loca...', 'mathi006', 'abcde')
+#1 /home/mathi006/public_html/hop3x/back-side/getEvent.php(21): createEvenementhop3X('1452363999230', '0', 0, 0, 0, 0, 'f', '')
+#2 {main}
+  thrown in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 8
+[09-Jan-2016 19:31:15 Europe/Paris] PHP Warning:  Missing argument 9 for createEvenementhop3X(), called in /home/mathi006/public_html/hop3x/back-side/getEvent.php on line 21 and defined in /home/mathi006/public_html/hop3x/back-side/eventsController.php on line 2
+[09-Jan-2016 20:41:23 Europe/Paris] PHP Warning:  include_once(back-side/usersController.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 2
+[09-Jan-2016 20:41:23 Europe/Paris] PHP Warning:  include_once(): Failed opening 'back-side/usersController.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 2
+[09-Jan-2016 20:41:23 Europe/Paris] PHP Fatal error:  Call to undefined function getUsershop3X() in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 3
+[09-Jan-2016 20:41:43 Europe/Paris] PHP Warning:  include_once(back-side/usersController.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 2
+[09-Jan-2016 20:41:43 Europe/Paris] PHP Warning:  include_once(): Failed opening 'back-side/usersController.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 2
+[09-Jan-2016 20:41:43 Europe/Paris] PHP Fatal error:  Call to undefined function getUsershop3X() in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 3
+[09-Jan-2016 20:41:45 Europe/Paris] PHP Warning:  include_once(back-side/usersController.php): failed to open stream: No such file or directory in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 2
+[09-Jan-2016 20:41:45 Europe/Paris] PHP Warning:  include_once(): Failed opening 'back-side/usersController.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 2
+[09-Jan-2016 20:41:45 Europe/Paris] PHP Fatal error:  Call to undefined function getUsershop3X() in /home/mathi006/public_html/hop3x/back-side/viewUsers.php on line 3
