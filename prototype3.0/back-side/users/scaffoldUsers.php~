@@ -52,12 +52,14 @@ function getUsers(){
 	return($retour);
 }
 
-//utilise le username pour renvoyer le user et ses champs
+
 function getUserIdByUsername($u_name){
 	$serverName = "localhost";
 	$usernam = "root";
 	$database = "hop3x";
 	$password = "abcde";
+	
+	
 	
 	$user_id = -1;
 	

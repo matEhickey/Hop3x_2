@@ -2,7 +2,7 @@
 
 	include("../../commons/commonBegin.php");
 	
-	//affichage d'un message d'erreur en fonction du context
+	//affichage d'un message d'erreur
 	$message = $_GET["message"];
 	if($message){
 		echo "<strong>".$message."</strong>\n";
