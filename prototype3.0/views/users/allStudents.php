@@ -1,13 +1,14 @@
 <?php
 	include("../../commons/commonBegin.php");
-
 	
-	//montrer de tablo des professeurs
-	$professeurs = getProfesseur();
+?>	
 	
-	echo "<div class=table-responsive>";
+<?php 
+//montrer de tablo des etudiants
+		$etudiant = getEtudiant();
+			echo "<div class=table-responsive>";
 			echo "<table class= table >";
-			echo "<caption alighn = centre> List des professeurs :</caption>";
+			echo "<caption alighn = centre> List des utilisateurs :</caption>";
 			echo "<tr class = active>";
                 echo "<td>ID</td>";
                 echo "<td>LOGIN</td>";
@@ -17,15 +18,16 @@
 				echo "<td>E-MAIL</td>";
 				echo "<td>CLE SECURE COOCKIE</td>";
 			echo "</tr>";
-				foreach ($professeurs as $professeurs){
+				foreach ($etudiant as $etudiant){
 					echo "<tr>";
-						foreach ($professeurs as $sValue){
+						foreach ($etudiant as $sValue){
 							echo "<td>{$sValue}</td>";
 						}
 					echo "</tr>";
 				}
 			echo "</table>";
 			echo "</div>";
+		
 	
 	
 ?>
@@ -33,5 +35,6 @@
 
 
 <?php
+	
 	include("../../commons/commonEnd.php");
 ?>

@@ -1,12 +1,12 @@
 <?php
 
-function createProfesseur($user_id){
+function createEtudiant($user_id){
 	$serverName = "localhost";
 	$usernam = "root";
 	//$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*,$password*/);
-	$requete = "INSERT INTO `professeur` (
+	$requete = "INSERT INTO `etudiants` (
 		`user_id`
 	)
 	VALUES (
@@ -21,14 +21,14 @@ function createProfesseur($user_id){
 	}*/
 	$conn=null;
 }
-function getProfesseur(){
+function getEtudiant(){
 	$serverName = "localhost";
 	$usernam = "root";
 	//$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*, $password*/);
 
-	$requete = "	SELECT * FROM  `professeur` INNER JOIN `Users` ON professeur.user_id = Users.id ";
+	$requete = "	SELECT * FROM  `etudiants` INNER JOIN `Users` ON etudiants.user_id = Users.id ";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
@@ -43,18 +43,13 @@ function getProfesseur(){
 	return($retour);
 }
 
-
-
-
-
-
-function updateProfesseur($id,$user_id){
+function updateEtudiant($id,$nom,$prenom,$group,$email){
 	$serverName = "localhost";
 	$usernam = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam , $password);
-	$requete ="UPDATE `professeur` SET `user_id` = '".$user_id."' WHERE id=".$id;
+	//$password = "12345";
+	$database = "test_db";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*$password*/);
+	$requete ="UPDATE `etudiant` SET `nom` = '".$nom."' ,`prenom` = '".$prenom."' ,`group` = '".$group."' ,`email` = '".$email."' WHERE id=".$id;
 	$statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont ete prises en compte</h3>";
 	}
@@ -63,13 +58,13 @@ function updateProfesseur($id,$user_id){
 	}
 	$conn=null;
 }
-function deleteProfesseur($id){
+function deleteEtudiant($id){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "abcde";
+	//$password = "12345";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*, $password*/);
-	$requete ="DELETE FROM `professeur` WHERE `user_id` =".$id;
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*$password*/);
+	$requete ="DELETE FROM `etudiant` WHERE `user_id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		echo "<h3>Les modifications ont ete prises en compte</h3>";
 	}

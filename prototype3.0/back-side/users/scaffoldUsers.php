@@ -190,5 +190,47 @@ function isConnected(){
 	}
 }
 
+function getPassword(){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "	SELECT `motdePasse` FROM  `Users` ";
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("motdePasse" => $row['motdePasse']);
+		array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$conn=null;
+	return($retour);
+}
+
+function getUserName(){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "	SELECT `username` FROM  `Users` ";
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("username" => $row['username']);
+		array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$conn=null;
+	return($retour);
+}
+
 
 ?>
