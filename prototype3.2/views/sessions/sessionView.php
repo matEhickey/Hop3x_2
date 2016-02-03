@@ -1,0 +1,47 @@
+<?php 
+ 	include("../../commons/commonBegin.php");
+	include("../../back-side/sessions/sessionController.php");
+	
+	/* Obtention des arguments */
+	$user_id = $_GET['user_id'];
+	$sessions = getSession();
+
+?>
+
+
+<form method="post" action="../../back-side/sessions/getSession.php">
+	<label for="sessionName">Nom de la session</label>
+	<input type="text" name="sessionName" placeholder="Nom de la session"/>
+	<input type="submit" name="envoyer" value="creer" id="envoyer" />
+	<input type ="hidden" name="user_id" value="5">
+	
+</form>
+
+
+<?php 
+	
+	
+	foreach($sessions as $session){
+		echo "<div class=\"row\">";
+		
+		
+			echo '<a href="sessionIndividuelle.php?id='.$session["id"].'" class="btn btn-default">'.$session["name"].'</a>';
+		
+			echo '<a href="updateSession.php?id='.$session["id"].'" class="btn btn-default">Modifier</a>';
+		
+			echo '<a href="../../back-side/sessions/deleteSession.php?id='.$session["id"].'" class="btn btn-default"
+				 onclick="return confirm(\'etes vous sur de vouloir supprimer la session \')">Supprimer</a>';
+		
+		
+		echo "</div>";
+		
+	}
+	
+?>
+
+
+<?php
+
+	include("../../commons/commonEnd.php");
+?>
+
