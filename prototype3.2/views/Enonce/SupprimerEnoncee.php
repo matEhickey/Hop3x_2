@@ -2,15 +2,10 @@
  	include("../../commons/commonBegin.php");
 	include("../../back-side/Enonce/EnonceController.php");
 	$id=$_GET["id"];
+	$idsession=$_GET['idsession'];
 	$enonce=getEnonceebyId($id);
 	deleteEnoncee($id);
-	//header('Location: ../Enonce/ajoutEnonce.php');
-?>
+	header('Location: ../../views/Enonce/listeEnoncee.php?idsession='.$idsession);
 
-
-
-
-
-<?php
 	include("../../commons/commonEnd.php");
 ?>

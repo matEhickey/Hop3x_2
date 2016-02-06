@@ -2,6 +2,7 @@
  	include("../../commons/commonBegin.php");
 	include("../../back-side/Enonce/EnonceController.php");
 	$id=$_GET["id"];
+	$idsession=$_GET["idsession"];
 	$enonce=getEnonceebyId($id);
 ?>
 <h3>Modification d enonce</h3>
@@ -11,6 +12,7 @@
 </div>
 <div class="col-md-6">
 <form method="post" action="../../back-side/Enonce/gestionEnonce.php">
+	<input type="hidden" name="idsession" value=<?php echo "\"".$idsession."\""; ?> ><br/>
 	<input type="hidden" name="id" value=<?php echo "\"".$enonce[0]['id']."\"";?>  >
 	<label for="message">message</label>
 	<textarea name="message" rows="4" cols="5"><?php echo $enonce[0]['message']; ?></textarea>

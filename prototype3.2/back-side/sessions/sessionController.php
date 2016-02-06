@@ -1,19 +1,23 @@
 <?php
 
-function createSession($user_id,$name){
+function createSession($user_id,$name,$dateDebutSession,$dateFinSession){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 
 	$requete = "INSERT INTO `session` (
 		`user_id`,
-		`name`
+		`name`,
+		`dateDebutSession`,
+		`dateFinSession`
 	)
 	VALUES (
 		'".$user_id."',
-		'".$name."'
+		'".$name."',
+		'".$dateDebutSession."',
+		'".$dateFinSession."'
 	);";
 	$statement = $conn->query($requete);
 	if($statement == TRUE) {
@@ -29,15 +33,14 @@ function getSession(){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete = "	SELECT * FROM  `session` ";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"user_id" => $row['user_id'],"name" => $row['name']);
+			$temp = array("id" => $row['id'],"user_id" => $row['user_id'],"name" => $row['name'],
+						"dateDebutSession" => $row['dateDebutSession'], "dateFinSession" => $row['dateFinSession']
+					);
 			array_push($retour,$temp);
 		}
 	}
@@ -53,7 +56,7 @@ function getSessionbyId($id){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
@@ -61,7 +64,8 @@ function getSessionbyId($id){
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"user_id" => $row['user_id'],"name" => $row['name']);
+			$temp = array("id" => $row['id'],"user_id" => $row['user_id'],"name" => $row['name'],
+						"dateDebutSession" => $row['dateDebutSession'], "dateFinSession" => $row['dateFinSession']);
 			array_push($retour,$temp);
 		}
 	}
@@ -71,16 +75,17 @@ function getSessionbyId($id){
 	$conn=null;
 	return($retour);
 }
-function updateSession($id,$user_id,$name){
+function updateSession($id,$user_id,$name,$dateDebutSession,$dateFinSession){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	$requete ="UPDATE `session` SET `id` = '".$id."' ,`user_id` = '".$user_id."' ,`name` = '".$name."' WHERE id=".$id;
+	$requete ="UPDATE `session` SET `id` = '".$id."' ,`user_id` = '".$user_id."' ,`name` = '".$name."',
+						`dateDebutSession`= '".$dateDebutSession."', `dateFinSession` = '".$dateFinSession."' WHERE id=".$id;
 	$statement = $conn->query($requete);	
 	if($statement == TRUE) {
 		return true;
@@ -95,7 +100,7 @@ function deleteSession($id){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
