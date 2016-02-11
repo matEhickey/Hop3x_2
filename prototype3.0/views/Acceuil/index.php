@@ -1,6 +1,13 @@
 <?php
 
 	include("../../commons/commonBegin.php");
+	
+	//affichage d'un message d'erreur en fonction du context
+	$message = $_GET["message"];
+	if($message){
+		echo "<strong>".$message."</strong>\n";
+	}
+	
 ?>
 
 
@@ -39,16 +46,16 @@
 			<div class="row">
 				<img class="img-responsive" src="http://hop3x.univ-lemans.fr/hop3x.png">
 			</div>
-			<form action="../sessions/sessionView.php" method="POST">
+			<form action="../../back-side/users/login.php" method="POST">
 				<div class="row">
 					
 					  <div class="form-group">
 					    <label for="username">Username</label>
-					    <input type="text" class="form-control" id="username" placeholder="Username">
+					    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
 					  </div>
 					  <div class="form-group">
 					    <label for="exampleInputPassword1">Password</label>
-					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					    <input type="password" class="form-control" id="password" name ="password" placeholder="Password">
 					  </div>
 					
 				</div>
@@ -56,7 +63,7 @@
 				<button class="btn btn-primary" type="submit" name="connexionButton">Connexion</button>
 				</div>
 			</form>
-			<a href="enseignant.php"><button class="btn btn-primary">Espace prof</button></a>
+			<a href="../users/allUsers.php"><button class="btn btn-primary">Espace administrateur</button></a>
 		</div>
 		
 		

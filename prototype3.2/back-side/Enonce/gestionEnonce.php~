@@ -1,0 +1,35 @@
+<?php 
+ 	include("../../commons/commonBegin.php");
+	include("EnonceController.php");
+ 	
+	echo "creer :".$_POST["creer"]."\n"; 	
+ 	
+ 	if(isset($_POST['creer'])){
+ 		$idsession=$_POST['idsession'];
+	 	$message=$_POST['message'];
+	 	$messagewin=$_POST['messagewin'];
+	 	
+	 	echo "idses".$idsession."\n";
+	 	echo "mess".$message."\n";
+	 	echo "messagewin".$messagewin."\n";
+	 	createEnoncee($message,$messagewin,$idsession);
+	 	
+	 	//header('Location: ../../views/Enonce/ajoutEnonce.php?idsession=.'$idsession);
+	 	
+ 	}
+ 	if(isset($_POST['Modifier'])){
+ 		$idsession=$_POST['idsession'];
+ 		$id=$_POST['id'];
+ 		$message=$_POST['message'];
+	 	$messagewin=$_POST['messagewin'];
+	 	updateEnoncee($id,$message,$messagewin,$idsession);
+ 	}
+ 	header('Location: ../../views/Enonce/ajoutEnonce.php');
+ 	exit;
+ 	//header('Location: ../../views/Enonce/ajoutEnonce.php?idsession=.'$idsession);
+	
+?>
+
+<?php
+	include("../../commons/commonEnd.php");
+?>

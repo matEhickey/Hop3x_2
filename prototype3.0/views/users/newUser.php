@@ -10,7 +10,7 @@
 				</div>
 				<form name = "admin" action = "../../back-side/users/getNewUser.php" method = "POST">
 					<div class="row">
-						<div class="col-sm-9 col-md-8">
+						<div class="col-sm-11 col-md-11">
 							<div class="thumbnail">
 								<div class="caption">
 									<div class="panel-body">
@@ -20,28 +20,30 @@
 										<caption>Saisissez les informations</caption>
 										
 											<tr>
-												<td><input type="radio" name="choix" value="etudiant" checked> Ajouter du nouvel etudiant</Br></td>
-												<td><input type="radio" name="choix" value="professeur"> Ajouter du nouveau professeur</Br></td>
+												<td alighn = "left"><input type="radio" name="choix" value="etudiant" checked> Ajouter du nouvel etudiant</Br></td>
+												<td alighn = "left"><input type="radio" name="choix" value="professeur"> Ajouter du nouveau professeur</Br></td>	
 											</tr>
 											<tr>
 												<td alighn = "left" valign = "middle">Nom : </td>
-												<td><p><input type = "text" name = "nom"></p></td>
+												<td alighn = "left"><p><input type = "text" name = "nom"></p></td>
 											</tr>
 				
 											<tr>
 												<td alighn = "left" valign = "middle">Prenom : </td>
-												<td><p><input type = "text" name = "prenom"></p></td>
+												<td alighn = "left"><p><input type = "text" name = "prenom"></p></td>
 											</tr>
 
 											<tr>
 												<td alighn = "left" valign = "middle">E-mail : </td>
-												<td><p><input type = "email" name = "email"></p></td>
+												<td alighn = "left"><p><input type = "email" name = "email"></p></td>
 											</tr>
 										</table>
-										<input type = "submit" value = "Ajouter">
+										
 									
 								</div>
+								
 							</div>
+							<input type = "submit" class="btn btn-primary btn-block" value = "Ajouter">
 						</div>
 					</div>
 					</form>
