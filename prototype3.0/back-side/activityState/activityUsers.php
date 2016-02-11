@@ -78,5 +78,46 @@ function deleteActivity($id){
 	$conn=null;
 }
 
+function getActivityTime($user_id){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "SELECT `time` FROM  `activity` WHERE `user_id` =".$user_id;
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("time" => $row['time']);
+		array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$conn = null;
+	return($retour);
+}
+
+function getEventTime($file_id){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "SELECT `time` FROM  `evenement` WHERE `file_id` =".$file_id;
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("time" => $row['time']);
+		array_push($retour, $temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$conn = null;
+	return($retour);
+}
 
 ?>

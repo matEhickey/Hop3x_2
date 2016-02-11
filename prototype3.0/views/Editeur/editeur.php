@@ -25,6 +25,7 @@
     <script src="../../js/myAjax.js"></script>
     <script src="../../js/prototype1.js"></script>
     <script src="../../js/activityAjax.js"></script>
+	<script src="../../js/stateAjax.js"></script>
 
     
    
@@ -89,6 +90,7 @@
 						    
 						    //gestion de l'etat d'activite de l'utilisateur
 						    activityTick();
+						    checkState();
 						    
 						});
 					   

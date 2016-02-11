@@ -1,9 +1,9 @@
 
 var activityTick = function()
     {
-        var time = 1000;
+        var time = 60000;
         setInterval(function(){
-            userActivity(3, Date.now());
+            userActivity(0, Date.now());
         }, time);
     }
 
@@ -49,6 +49,6 @@ var userActivity = function(user_id, time){
             }
         }
 
-        xmlhttp.open("GET", "http://localhost/hop3x/prototype3.0/back-side/activityState/getActivity.php?user_id=" + user_id +"&time=" + time);
+        xmlhttp.open("GET", "http://localhost/Hop3x_2/prototype3.0/back-side/activityState/getActivity.php?user_id=" + user_id +"&time=" + time);
         xmlhttp.send();
 }
