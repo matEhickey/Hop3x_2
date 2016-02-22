@@ -3,9 +3,9 @@
 function createEnoncee($message,$messagewin,$sessionUniversitaire_id){
 	$serverName = "localhost";
 	$username = "root";
-	$password = "Mahamat";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 	$requete = "INSERT INTO `enoncee` (
 		`message`,
 		`messagewin`,
@@ -28,10 +28,10 @@ function createEnoncee($message,$messagewin,$sessionUniversitaire_id){
 function getEnoncee($sessionUniversitaire_id){
 	$serverName = "localhost";
 	$username = "root";
-	$password = "Mahamat";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
-	$requete = "	SELECT * FROM  `enoncee` WHERE  sessionUniversitaire_id=".$sessionUniversitaire_id;
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$requete = "	SELECT * FROM  `enoncee` WHERE  `sessionUniversitaire_id` =".$sessionUniversitaire_id;
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
@@ -48,9 +48,9 @@ function getEnoncee($sessionUniversitaire_id){
 function getEnonceebyIdandSession($id,$sessionUniversitaire_id){
 	$serverName = "localhost";
 	$username = "root";
-	$password = "Mahamat";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 	$requete = "	SELECT * FROM  `enoncee` WHERE id=".$id." AND sessionUniversitaire_id = ".$sessionUniversitaire_id;
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
@@ -69,9 +69,9 @@ function getEnonceebyIdandSession($id,$sessionUniversitaire_id){
 function getEnonceebyId($id){
 	$serverName = "localhost";
 	$username = "root";
-	$password = "Mahamat";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 	$requete = "	SELECT * FROM  `enoncee` WHERE id=".$id;
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
@@ -90,9 +90,9 @@ function getEnonceebyId($id){
 function updateEnoncee($id,$message,$messagewin,$sessionUniversitaire_id){
 	$serverName = "localhost";
 	$username = "root";
-	$password = "Mahamat";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 	$requete ="UPDATE `enoncee` SET `id` = '".$id."' ,`message` = '".$message."' ,`messagewin` = '".$messagewin."', `sessionUniversitaire_id`= '".$sessionUniversitaire_id."' WHERE id=".$id;
 	$statement = $conn->query($requete);	
 	if($statement == TRUE) {
@@ -106,9 +106,9 @@ function updateEnoncee($id,$message,$messagewin,$sessionUniversitaire_id){
 function deleteEnoncee($id){
 	$serverName = "localhost";
 	$username = "root";
-	$password = "Mahamat";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 	$requete ="DELETE FROM `enoncee` WHERE `id` =".$id;
 	$statement = $conn->query($requete);	
 	if($statement == TRUE) {

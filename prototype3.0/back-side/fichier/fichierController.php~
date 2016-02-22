@@ -1,20 +1,21 @@
 <?php
 
-function createTest($message,$code,$sessionUniversitaire_id){
+function createFichier($projet_id,$nom,$language){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete = "INSERT INTO `test` (
-		`message`,
-		`code`,
-		`sessionUniversitaire_id`
+
+	$requete = "INSERT INTO `fichier` (
+		`projet_id`,
+		`nom`,
+		`language`
 	)
 	VALUES (
-		'".$message."',
-		'".$code."',
-		'".$sessionUniversitaire_id."'
+		'".$projet_id."',
+		'".$nom."',
+		'".$language."'
 	);";
 	$statement = $conn->query($requete);
 	if($statement == TRUE) {
@@ -25,17 +26,18 @@ function createTest($message,$code,$sessionUniversitaire_id){
 	}
 	$conn=null;
 }
-function getTest(){
+function getFichier(){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete = "	SELECT * FROM  `test` ";
+
+	$requete = "	SELECT * FROM  `fichier` ";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"message" => $row['message'],"code" => $row['code'], 'sessionUniversitaire_id' => $row['sessionUniversitaire_id']);
+			$temp = array("id" => $row['id'],"projet_id" => $row['projet_id'],"nom" => $row['nom'],"language" => $row['language']);
 			array_push($retour,$temp);
 		}
 	}
@@ -46,17 +48,18 @@ function getTest(){
 	return($retour);
 }
 
-function getTestbyId($test_id){
+function getFichierByProjectID($projet_id){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete = "	SELECT * FROM  `test` WHERE id='".$test_id."'";
+
+	$requete = "	SELECT * FROM  `fichier` WHERE `project_id` = ".$projet_id;
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"message" => $row['message'],"code" => $row['code'],'sessionUniversitaire_id' => $row['sessionUniversitaire_id']);
+			$temp = array("id" => $row['id'],"projet_id" => $row['projet_id'],"nom" => $row['nom'],"language" => $row['language']);
 			array_push($retour,$temp);
 		}
 	}
@@ -66,33 +69,15 @@ function getTestbyId($test_id){
 	$conn=null;
 	return($retour);
 }
-function getTestbySession($sessionUniversitaire_id){
+
+function updateFichier($id,$projet_id,$nom,$language){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete = "	SELECT * FROM  `test` WHERE sessionUniversitaire_id='".$sessionUniversitaire_id."'";
-	$retour = [];
-	if ($statement = $conn->query($requete)) {
-		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"message" => $row['message'],"code" => $row['code'],'sessionUniversitaire_id' => $row['sessionUniversitaire_id']);
-			array_push($retour,$temp);
-		}
-	}
-	else { 
-		die("fail requete");
-	}
-	$conn=null;
-	return($retour);
-}
-function updateTest($id,$message,$code){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete ="UPDATE `test` SET `id` = '".$id."' ,`message` = '".$message."' ,`code` = '".$code."' WHERE id=".$id;
+
+	$requete ="UPDATE `fichier` SET `projet_id` = '".$projet_id."' ,`nom` = '".$nom."' ,`language` = '".$language."' WHERE id=".$id;
 	$statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";
 	}
@@ -101,13 +86,14 @@ function updateTest($id,$message,$code){
 	}
 	$conn=null;
 }
-function deleteTest($id){
+function deleteFichier($id){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete ="DELETE FROM `test` WHERE `id` =".$id;
+
+	$requete ="DELETE FROM `fichier` WHERE `id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";
 	}

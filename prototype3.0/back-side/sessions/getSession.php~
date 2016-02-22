@@ -7,7 +7,7 @@
 	$name=htmlentities($_POST["sessionName"]);
 		
 	/* Insertion d'une nouvelle session */
-	if(createSession($user_id,$name) < 0){
+	if(createSession($user_id,$name)){
 		header('Location: ../../views/sessions/sessionView.php');
 	}else{
 		echo "<h3>probleme d'insertion</h3>";

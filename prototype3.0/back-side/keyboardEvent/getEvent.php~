@@ -18,5 +18,5 @@
 
 	
 	createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$removed);
-
+	//print("   link:".$actual_link);
 ?>

@@ -4,7 +4,7 @@
 	
 	$id=$_GET["id"];
 	$sessionUniversitaire=getSessionUniversitaire($id);	//tu n'appele pas la fonction que tu veut, il sagit de getSessionUniversitairebyId 
-	$SessionUniversitaire_id=$sessionUniversitaire[0]["id"];	//2 fois la meme variable, qui est surtout contenu dans la variable ..
+	$SessionUniversitaire_id=$sessionUniversitaire[0]["id"];	//presque 2 fois la meme variable, qui est surtout contenu dans la 3 ieme..
 
 ?>
 
@@ -14,7 +14,7 @@
 	<?php 
 	
 	if($sessionUniversitaire===null){	
-		echo '<h3>Cette session n\'existe pas encore</h3> ';	//faux, test si la fonction getSessionUniversitaire renvoi un objet (un tableau vide est different de null)....
+		echo '<h3>Cette session n\'existe pas encore</h3> ';	//faux, test surtout si la fonction getSessionUniversitaire cree un tableau....
 	}
 	else{
 		echo 'identifiant de la session courante: '.$sessionUniversitaire[0]["id"].'<br/>'; 

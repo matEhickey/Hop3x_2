@@ -28,7 +28,7 @@
 	//echo "id= ".$enonce_id."</br>";
 	//echo "sessionUniversitaire_id".$sessionUniversitaire_id."</br>";
 	
-	header('Location: ../../views/test/listTest.php?enonce_id='.$enonce_id.'&sessionUniversitaire_id='.$sessionUniversitaire_id );
+	header('Location: ../../views/test/listTest.php?id='.$enonce_id.'&sessionUniversitaire_id='.$sessionUniversitaire_id );
 
 	
 ?>

@@ -18,8 +18,8 @@ $enseignant_id=$_GET['enseignant_id'];
 		<input type="hidden" name="enseignant_id" value=  <?php echo "\"".$enseignant_id."\""; ?> >
 		<div class="form-group">
 		
-			<label for="name">Nom de la session</label>
-			<input type="text" name="name" >
+			<label for="sessionName">Nom de la session</label>
+			<input type="text" name="sessionName" >
 		</div>
 
 		<div class="form-group">

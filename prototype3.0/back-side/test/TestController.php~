@@ -5,7 +5,7 @@ function createTest($message,$code,$sessionUniversitaire_id){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete = "INSERT INTO `test` (
 		`message`,
 		`code`,
@@ -30,7 +30,7 @@ function getTest(){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete = "	SELECT * FROM  `test` ";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
@@ -51,7 +51,7 @@ function getTestbyId($test_id){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete = "	SELECT * FROM  `test` WHERE id='".$test_id."'";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
@@ -71,7 +71,7 @@ function getTestbySession($sessionUniversitaire_id){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete = "	SELECT * FROM  `test` WHERE sessionUniversitaire_id='".$sessionUniversitaire_id."'";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
@@ -91,7 +91,7 @@ function updateTest($id,$message,$code){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete ="UPDATE `test` SET `id` = '".$id."' ,`message` = '".$message."' ,`code` = '".$code."' WHERE id=".$id;
 	$statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";
@@ -106,7 +106,7 @@ function deleteTest($id){
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, '');
 	$requete ="DELETE FROM `test` WHERE `id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";

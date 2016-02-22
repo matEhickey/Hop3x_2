@@ -11,10 +11,9 @@
 	
 	/* Insertion d'une nouvelle session abstraite */
 	$user_id = 0; //-> get user_id by enseignant _id
+	createSession($user_id,$name);
 	//recupere l'id insere
-	$session_id = createSession($user_id,$name);
-	
-	
+	$session_id = 0;
 	
 	/* Insertion d'une nouvelle session universitaire */
 	if(createSessionUniversitaire($enseignant_id,$session_id,$dateDebutSession,$dateFinSession)){

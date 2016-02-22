@@ -17,10 +17,10 @@ function createSession($user_id,$name){
 	);";
 	$statement = $conn->query($requete);
 	if($statement == TRUE) {
-		return $conn->lastInsertId();
+		return true;
 	}
 	else{
-		return -1;
+		return false;
 	}
 	$conn=null;
 }

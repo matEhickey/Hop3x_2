@@ -29,7 +29,7 @@
 			echo "<td>".$enoncee["message"]."</td>";
 			echo "<td>".$enoncee["messagewin"]."</td>";
 			echo "<td>".$enoncee["sessionUniversitaire_id"]."</td>";
-			echo "<td><a href='../test/listTest.php?enonce_id=".$enoncee["id"]."&sessionUniversitaire_id=".$sessionUniversitaire_id."' class='btn btn-primary'>Gestion des Tests</a></td>";
+			echo "<td><a href='../test/listTest.php?id=".$enoncee["id"]."&sessionUniversitaire_id=".$sessionUniversitaire_id."' class='btn btn-primary'>Gestion des Tests</a></td>";
 			echo "<td><a href='ModifierEnoncee.php?id=".$enoncee["id"]."&sessionUniversitaire_id=".$sessionUniversitaire_id."' class='btn btn-primary' >Modifier</a>";
 			echo "<a href='SupprimerEnoncee.php?id=".$enoncee["id"]."&sessionUniversitaire_id=".$sessionUniversitaire_id."'  class='btn btn-primary'
 			onclick='return confirm(\" etes vous sur de vouloir supprimer cet enonce ?\")'

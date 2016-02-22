@@ -1,4 +1,4 @@
-var SauvegardeEvent = function(file_id,time,text,removed){
+var SauvegardeEvent = function(file_id,time,from_l,to_l,from_c,to_c,text,removed){
 	
 	
 	
@@ -12,23 +12,7 @@ var SauvegardeEvent = function(file_id,time,text,removed){
         
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("debugView").innerHTML += xmlhttp.responseText;
-                
-                try {
-                	var fonctionne = true;//parseInt(document.getElementById("debug").innerHTML);
-                	if(fonctionne){
-               		 	//alert("ca a la l'air de fonctionner");
-			}
-			else{ 
-				alert("Il y a eu un probleme 1, veuillez recommencer svp");
-			 }
-                }
-                catch(e){
-                	alert("Il y a eu un probleme 2, veuillez recommencer svp");
-                	console.log(e);
-                }
-                
-                
+                document.getElementById("debugView").innerHTML += xmlhttp.responseText; 
             }
             else{
             	if((xmlhttp.readyState == 4) && (xmlhttp.status != 200)){
@@ -38,7 +22,13 @@ var SauvegardeEvent = function(file_id,time,text,removed){
             	}
             }
         }
-        xmlhttp.open("GET","../../back-side/getEvent.php?file_id="+file_id+"&time="+time+"&text="+text+"&removed="+removed);
+        xmlhttp.open("GET","../../back-side/keyboardEvent/getEvent.php?"        							+"file_id="+file_id
+        						+"&time="+time
+        						+"&from_l="+from_l
+        						+"&to_l"+to_l
+        						+"&from_c"+from_c
+        						+"&to_c"+to_c
+        						+"&text="+text+"&removed="+removed);
        
         	
         	

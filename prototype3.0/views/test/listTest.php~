@@ -40,7 +40,7 @@
 					echo "<td>".$test['message']."</td>";
 					echo "<td>".$test['code']."</td>";
 					echo "<td><a href='modifiertest.php?test_id=".$test['id']."&id=".$enonce_id."' class='btn btn-primary'>MODIFIER</a></td>";
-					echo "<td><a href='../../back-side/test/supprimertest.php?test_id=".$test['id']."&enonce_id=".$enonce_id."&sessionUniversitaire_id=".$sessionUniversitaire_id."' class='btn btn-primary'>SUPPRIMER</a></td>";
+					echo "<td><a href='../../back-side/test/supprimertest.php?test_id=".$test['id']."&id=".$enonce_id."&sessionUniversitaire_id=".$sessionUniversitaire_id."' class='btn btn-primary'>SUPPRIMER</a></td>";
 					echo "</tr>";
 				}
 			?>
