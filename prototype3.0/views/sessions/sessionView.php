@@ -13,7 +13,8 @@
 		header('Location: ../../views/Acceuil/index.php?message=Probleme de connection');
 		
 	}
-	$sessions = getSession();
+	
+	$sessions = getSessionByUser($user_id);
 
 ?>
 
@@ -22,7 +23,7 @@
 	<label for="sessionName">Nom de la session</label>
 	<input type="text" name="sessionName" placeholder="Nom de la session"/>
 	<input type="submit" name="envoyer" value="creer" id="envoyer" />
-	<input type ="hidden" name="user_id" value="5">
+	<input type ="hidden" name="user_id" value= <?php echo "\"".$user_id."\"" ?> >
 	
 </form>
 
@@ -34,7 +35,7 @@
 		echo "<div class=\"row\">";
 		
 		
-			echo '<a href="sessionIndividuelle.php?id='.$session["id"].'" class="btn btn-default">'.$session["name"].'</a>';
+			echo '<a href="../Editeur/editeur.php?session_id='.$session["id"].'" class="btn btn-default">'.$session["name"].'</a>';
 		
 			echo '<a href="updateSession.php?id='.$session["id"].'" class="btn btn-default">Modifier</a>';
 		

@@ -1,6 +1,9 @@
 <?php
 	include_once("projetController.php");
-	$session_id = $_GET["session_id"];;
+	include_once("projetController.php");
+	
+	
+	$session_id = $_GET["session_id"];
 	$projets = getProjetBySession($session_id);
 	
 	

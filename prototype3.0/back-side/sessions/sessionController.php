@@ -46,6 +46,28 @@ function getSession(){
 	return($retour);
 }
 
+function getSessionByUser($user_id){
+	$serverName = "localhost";
+	$username = "root";
+	$password = "abcde";
+	$database = "hop3x";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+
+	$requete = "	SELECT * FROM  `session` WHERE `user_id` = ".$user_id;
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("id" => $row['id'],"user_id" => $row['user_id'],"name" => $row['name']);
+			array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$conn=null;
+	return($retour);
+}
+
 function getSessionbyId($id){
 	$serverName = "localhost";
 	$username = "root";

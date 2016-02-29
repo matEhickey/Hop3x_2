@@ -39,25 +39,25 @@
 						
 					
 					
-						function handler(editor,event){
+						function saveEvent(editor,event){
 							//preparation et envoi de l ajax pour evenement clavier
 							
 								//formate l evenement, grace aux argument de event, l id de l utilisateur, l id du fichier
 							if(eventEnable){
-								print_debug("event at timestamp "+(Date.now())+"  : \n");
-								print_debug("    from line "+event.from.line+"  col "+event.from.ch+"\n");
-								print_debug("    to line "+event.to.line+"  col "+event.to.ch+"\n");
+								//print_debug("event at timestamp "+(Date.now())+"  : \n");
+								//print_debug("    from line "+event.from.line+"  col "+event.from.ch+"\n");
+								//print_debug("    to line "+event.to.line+"  col "+event.to.ch+"\n");
 								//console.log(event);
 								//console.log(Object.getOwnPropertyNames(event.removed).toString());
 							
 							
-								print_debug("    text("+event.text.length+"): \'"+event.text+"\'"+"\n");
-								println_debug("    removed("+event.removed.length+"): \'"+event.removed+"\'"+"\n");
+								//print_debug("    text("+event.text.length+"): \'"+event.text+"\'"+"\n");
+								//println_debug("    removed("+event.removed.length+"): \'"+event.removed+"\'"+"\n");
 							
 							
 								//save via ajax  -> js/myAjax.js
 								if(file_id != -1){
-									SauvegardeEvent(file_id,Date.now() , event.from.line, event.to.line , event.from.ch, event.to.ch  ,event.text,event.removed);
+									var event_id = SauvegardeKeyboardEvent(file_id,Date.now() , event.from.line, event.to.line , event.from.ch, event.to.ch  ,event.text,event.removed);
 								}
 								else{
 									alert("no file to write");

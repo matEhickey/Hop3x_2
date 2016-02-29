@@ -13,9 +13,7 @@ function createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$remov
 		`from_l`,
 		`from_c`,
 		`to_l`,
-		`to_c`,
-		`text`,
-		`removed`
+		`to_c`
 	)
 	VALUES (
 		'".$time."',
@@ -23,24 +21,22 @@ function createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$remov
 		'".$from_l."',
 		'".$from_c."',
 		'".$to_l."',
-		'".$to_c."',
-		'".$text."',
-		'".$removed."'
+		'".$to_c."'
 	);";
 	$statement = $conn->query($requete);
 	if($statement == TRUE) {
-		echo "<h3>Les modifications ont été prises en compte</h3>";
+		return($conn->lastInsertId());
 	}
 	else{
-		echo "<h3>Erreur, veuillez recommencer</h3>";
+		return("fail");
 	}
 	$conn=null;
 }
 function getEvenement(){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 
@@ -62,9 +58,9 @@ function getEvenement(){
 
 function getEvenementhop3xFile($file_id){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	//$conn = new mysqli($servername, $username, $password,$database);
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
@@ -90,9 +86,9 @@ function getEvenementhop3xFile($file_id){
 
 function updateEvenement($id,$id,$time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$removed){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 
@@ -108,9 +104,9 @@ $statement = $conn->query($requete);	if($statement == TRUE) {
 }
 function deleteEvenement($id){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 

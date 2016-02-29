@@ -31,7 +31,7 @@ var showFichiers = function(projet_id){
 }
 
 var loadFichier = function(file_id){
-	console.log("arrivé dans loadFichier");
+	//console.log("arrivé dans loadFichier");
 	
 	
 	
@@ -61,7 +61,7 @@ var loadFichier = function(file_id){
             	}
             }
         }
-        xmlhttp.open("GET","../../back-side/fichier/fichierRandom.php");
+        xmlhttp.open("GET","../../back-side/reconstruction/ShowFile.php?id="+file_id);
        
         	
         	

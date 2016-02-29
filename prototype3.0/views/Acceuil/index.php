@@ -3,9 +3,11 @@
 	include("../../commons/commonBegin.php");
 	
 	//affichage d'un message d'erreur en fonction du context
-	$message = $_GET["message"];
-	if($message){
-		echo "<strong>".$message."</strong>\n";
+	if(isset($_GET["message"])){
+		$message = $_GET["message"];
+		if($message){
+			echo "<strong>".$message."</strong>\n";
+		}
 	}
 	
 ?>

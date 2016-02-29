@@ -1,19 +1,19 @@
 <?php
 
-function createProjet($session_id,$nom){
+function createEventremoved($event_id,$removed){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
-	$requete = "INSERT INTO `projet` (
-		`session_id`,
-		`nom`
+	$requete = "INSERT INTO `eventRemoved` (
+		`event_id`,
+		`removed`
 	)
 	VALUES (
-		'".$session_id."',
-		'".$nom."'
+		'".$event_id."',
+		'".$removed."'
 	);";
 	$statement = $conn->query($requete);
 	if($statement == TRUE) {
@@ -24,18 +24,18 @@ function createProjet($session_id,$nom){
 	}
 	$conn=null;
 }
-function getProjet(){
+function getEventremoved($event_id){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
-	$requete = "	SELECT * FROM  `projet` ";
+	$requete = "	SELECT * FROM  `eventRemoved` WHERE `event_id` = ".$event_id ."  ORDER BY `id` ";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"session_id" => $row['session_id'],"nom" => $row['nom']);
+			$temp = array("id" => $row['id'],"event_id" => $row['event_id'],"removed" => $row['removed']);
 			array_push($retour,$temp);
 		}
 	}
@@ -45,37 +45,16 @@ function getProjet(){
 	$conn=null;
 	return($retour);
 }
-
-function getProjetBySession($session_id){
+function updateEventremoved($id,$id,$event_id,$removed){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete = "SELECT * FROM `projet` WHERE `session_id` = ".$session_id;
-	$retour = [];
-	if ($statement = $conn->query($requete)) {
-		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"session_id" => $row['session_id'],"nom" => $row['nom']);
-			array_push($retour,$temp);
-		}
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
 	}
-	else { 
-		echo $requete."<br>";
-		die("fail requete");
-	}
-	$conn=null;
-	return($retour);
-}
-function updateProjet($id,$id,$session_id,$nom){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete ="UPDATE `projet` SET `session_id` = '".$session_id."' ,`nom` = '".$nom."' WHERE id=".$id;
+	$requete ="UPDATE `eventRemoved` SET `id` = '".$id."' ,`event_id` = '".$event_id."' ,`removed` = '".$removed."' WHERE id=".$id;
 	$statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";
 	}
@@ -84,14 +63,16 @@ function updateProjet($id,$id,$session_id,$nom){
 	}
 	$conn=null;
 }
-function deleteProjet($id){
+function deleteEventremoved($id){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete ="DELETE FROM `projet` WHERE `id` =".$id;
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	$requete ="DELETE FROM `eventRemoved` WHERE `id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";
 	}

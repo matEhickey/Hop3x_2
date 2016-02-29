@@ -1,6 +1,12 @@
-var SauvegardeEvent = function(file_id,time,from_l,to_l,from_c,to_c,text,removed){
+var compile = function(session_id){
+	//creation des fichiers temporaire
+	creerDossier(session_id);
 	
-	
+}
+
+
+var creerDossier = function(session_id){
+
 	
 	if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -12,28 +18,20 @@ var SauvegardeEvent = function(file_id,time,from_l,to_l,from_c,to_c,text,removed
         
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("debugView").innerHTML += xmlhttp.responseText; 
+               document.getElementById("debugView").innerHTML += xmlhttp.responseText;
             }
             else{
             	if((xmlhttp.readyState == 4) && (xmlhttp.status != 200)){
             		console.log("Ca marche pas: \nreadyState ="+xmlhttp.readyState+"\n status ="+xmlhttp.status);
-            		alert("Il y a eu un probleme");
+            		alert("Probleme avec la creation du dossier");
             		//erreurSauvegarde();
             	}
             }
         }
-        xmlhttp.open("GET","../../back-side/keyboardEvent/getEvent.php?"        							+"file_id="+file_id
-        						+"&time="+time
-        						+"&from_l="+from_l
-        						+"&to_l"+to_l
-        						+"&from_c"+from_c
-        						+"&to_c"+to_c
-        						+"&text="+text+"&removed="+removed);
+        xmlhttp.open("GET","../../back-side/CompilationExecution/createDirectory.php?"        							
+        						+"session_id="+session_id);
        
-        	
-        	
         xmlhttp.send();
-        
-        	
-	
+
+
 }

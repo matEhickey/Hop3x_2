@@ -46,7 +46,7 @@ var newProjet = function(session_id){
         
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		loadMenuRapport();
+		loadMenuRapport(session_id);
 		console.log("nouveau projet  :"+xmlhttp.responseText);
             }
             else{

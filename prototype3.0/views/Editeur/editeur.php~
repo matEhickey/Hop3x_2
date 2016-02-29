@@ -24,21 +24,20 @@
     
     
     <!--Custom javascript-->
-    <script src="../../js/myAjax.js"></script>
-    <script src="../../js/prototype1.js"></script>
+    <script src="../../js/keyboardEventAjax.js"></script>
+    <script src="../../js/editeurCommon.js"></script>
     <script src="../../js/activityAjax.js"></script>
 	<script src="../../js/stateAjax.js"></script>
 	<script src="../../js/menuProjet.js"></script>
 	<script src="../../js/menuFichier.js"></script>
-    
+    	<script src="../../js/compilationExecution.js"></script>
    
 
 
 		<div class="row hop3xBox">
 			<!-- Panneau horizontal du dessus, fonctions importantes-->
 			<ol class="list-inline">
-				<li><button class="btn btn-primary">Nouveau</button></li>
-				<li><button class="btn btn-primary">Compiler</button></li>
+				<li><button class="btn btn-primary" onclick=<?php echo  "  \"compile(".$session_id.")\"  "    ?>>Compiler</button></li>
 				<li><button class="btn btn-primary">Executer</button></li>
 				<li><input type="text" class="form-control" id="search-button" placeholder="Search"></li>
 				<li><input type="text" class="form-control" id="replace_button" placeholder="Replace"></li>
@@ -54,7 +53,7 @@
 				
 			</div>
 			
-			<div class="col-md-8">
+			<div class="col-md-10">
 				<!-- editeur -->			
 				
 					
@@ -88,7 +87,7 @@
 						    //Au debut, il n'y a pas de fichier ouvert, donc desact l'edition
 						    //on la remet det qu'un fichier est charger
 						    editor.setOption("readOnly",true);
-						    editor.on('change', function(ed,ev){handler(ed,ev)});
+						    editor.on('change', function(ed,ev){saveEvent(ed,ev)});
 						    
 						    //recupere la session
 						    var session = "<?php Print($session); ?>";

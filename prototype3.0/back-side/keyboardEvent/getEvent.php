@@ -3,8 +3,7 @@
 	
 	$file_id = $_GET['file_id'];
 	$time = $_GET['time'];
-	$text = $_GET['text'];
-	$removed = $_GET['removed'];
+
 	
 	
 	
@@ -17,6 +16,6 @@
 
 
 	
-	createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$removed);
+	echo createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c);
 
 ?>

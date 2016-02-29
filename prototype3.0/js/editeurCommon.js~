@@ -57,7 +57,7 @@
 							
 								//save via ajax  -> js/myAjax.js
 								if(file_id != -1){
-									SauvegardeEvent(file_id,Date.now() , event.from.line, event.to.line , event.from.ch, event.to.ch  ,event.text,event.removed);
+									var event_id = SauvegardeKeyboardEvent(file_id,Date.now() , event.from.line, event.to.line , event.from.ch, event.to.ch  ,event.text,event.removed);
 								}
 								else{
 									alert("no file to write");

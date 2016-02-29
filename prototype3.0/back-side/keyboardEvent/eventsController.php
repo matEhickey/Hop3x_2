@@ -1,6 +1,6 @@
 <?php
 
-function createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$removed){
+function createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c){
 	$serverName = "localhost";
 	$username = "root";
 	$password = "abcde";
@@ -13,9 +13,7 @@ function createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$remov
 		`from_l`,
 		`from_c`,
 		`to_l`,
-		`to_c`,
-		`text`,
-		`removed`
+		`to_c`
 	)
 	VALUES (
 		'".$time."',
@@ -23,24 +21,22 @@ function createEvenement($time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$remov
 		'".$from_l."',
 		'".$from_c."',
 		'".$to_l."',
-		'".$to_c."',
-		'".$text."',
-		'".$removed."'
+		'".$to_c."'
 	);";
 	$statement = $conn->query($requete);
 	if($statement == TRUE) {
-		echo "<h3>Les modifications ont été prises en compte</h3>";
+		return($conn->lastInsertId());
 	}
 	else{
-		echo "<h3>Erreur, veuillez recommencer</h3>";
+		return("fail");
 	}
 	$conn=null;
 }
 function getEvenement(){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 
@@ -62,9 +58,9 @@ function getEvenement(){
 
 function getEvenementhop3xFile($file_id){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	//$conn = new mysqli($servername, $username, $password,$database);
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
@@ -75,7 +71,7 @@ function getEvenementhop3xFile($file_id){
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 
-			$temp = array("id" => $row['id'],"time" => $row['time'],"file_id" => $row['file_id'],"from_l" => $row['from_l'],"from_c" => $row['from_c'],"to_l" => $row['to_l'],"to_c" => $row['to_c'],"text" => $row['text'],"removed" => $row['removed']);
+			$temp = array("id" => $row['id'],"time" => $row['time'],"file_id" => $row['file_id'],"from_l" => $row['from_l'],"from_c" => $row['from_c'],"to_l" => $row['to_l'],"to_c" => $row['to_c']);
 			array_push($retour,$temp);
 			
 		}
@@ -88,16 +84,16 @@ function getEvenementhop3xFile($file_id){
 }
 
 
-function updateEvenement($id,$id,$time,$file_id,$from_l,$from_c,$to_l,$to_c,$text,$removed){
+function updateEvenement($id,$id,$time,$file_id,$from_l,$from_c,$to_l,$to_c){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 
 	
-	$requete ="UPDATE `evenement` SET `id` = '".$id."' ,`time` = '".$time."' ,`file_id` = '".$file_id."' ,`from_l` = '".$from_l."' ,`from_c` = '".$from_c."' ,`to_l` = '".$to_l."' ,`to_c` = '".$to_c."' ,`text` = '".$text."' ,`removed` = '".$removed."' WHERE id=".$id;
+	$requete ="UPDATE `evenement` SET `id` = '".$id."' ,`time` = '".$time."' ,`file_id` = '".$file_id."' ,`from_l` = '".$from_l."' ,`from_c` = '".$from_c."' ,`to_l` = '".$to_l."' ,`to_c` = '".$to_c."' WHERE id=".$id;
 $statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont été prises en compte</h3>";
 	}
@@ -108,9 +104,9 @@ $statement = $conn->query($requete);	if($statement == TRUE) {
 }
 function deleteEvenement($id){
 	$serverName = "localhost";
-	$username = "mathi006_bdd";
+	$username = "root";
 	$password = "abcde";
-	$database = "mathi006_unique";
+	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
 
