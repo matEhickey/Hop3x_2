@@ -1,10 +1,15 @@
 <?php
 	include("../../commons/commonBegin.php");
+	include("../../back-side/users/scaffoldUsers.php");
+
 	
 ?>	
-	
+	<script src = "../../js/DeleteUser.js"></script>
+	<form name "delete" action = "../../back-side/users/DeleteUser.php" method = "POST">
 <?php 
+	
 		$gprofesseur = getUsers();
+		$a = count($gprofesseur);
 			echo '<div class=table-responsive>';
 			echo '<table class= table >';
 			echo '<caption alighn = centre> List des utilisateurs :</caption>';
@@ -16,13 +21,18 @@
 				echo '<td>PRENOM</td>';
 				echo '<td>E-MAIL</td>';
 				echo '<td>CLE SECURE COOCKIE</td>';
+				echo '<td>MODIFICATION</td>';
 			echo '</tr>';
-				foreach ($gprofesseur as $gprofesseur){
+				foreach ($gprofesseur as $gprofesseurbyid){
+					$id_us = getUserId($gprofesseurbyid);
+					
 					echo '<tr>';
-						foreach ($gprofesseur as $sValue){
+					
+						foreach ($gprofesseurbyid as $sValue){
 							echo "<td>{$sValue}</td>";
-						}
-					echo '</tr>';
+							}							
+				 echo '<td><input class="btn btn-primary btn-block" value = "Supprimer" name = "delete" onClick="deleteUser('.$id_us.');"></td>';
+				echo '</tr>';
 				}
 			echo '</table>';
 			echo '</div>';
@@ -31,7 +41,7 @@
 	
 ?>
 
-
+</form>
 
 <?php
 	

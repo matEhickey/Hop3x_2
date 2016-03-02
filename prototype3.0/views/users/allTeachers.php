@@ -2,7 +2,7 @@
 	include("../../commons/commonBegin.php");
 
 	
-	//montrer de tablo des professeurs
+	
 	$professeurs = getProfesseur();
 	
 	echo "<div class=table-responsive>";

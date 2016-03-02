@@ -3,9 +3,9 @@
 function createProfesseur($user_id){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "abcde";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*,$password*/);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam ,$password);
 	$requete = "INSERT INTO `professeur` (
 		`user_id`
 	)
@@ -24,9 +24,9 @@ function createProfesseur($user_id){
 function getProfesseur(){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "abcde";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*, $password*/);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam , $password);
 
 	$requete = "	SELECT * FROM  `professeur` INNER JOIN `Users` ON professeur.user_id = Users.id ";
 	$retour = [];
@@ -66,9 +66,9 @@ function updateProfesseur($id,$user_id){
 function deleteProfesseur($id){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "abcde";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*, $password*/);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam , $password);
 	$requete ="DELETE FROM `professeur` WHERE `user_id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		echo "<h3>Les modifications ont ete prises en compte</h3>";
@@ -77,6 +77,23 @@ function deleteProfesseur($id){
 		echo "<h3>Erreur, veuillez recommencer</h3>";
 	}
 	$conn=null;
+}
+
+function getProfesseurId($pr){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$id = -1;
+	$users = getProfesseur();
+	if(count($users)>0){
+		foreach($users as $user){
+			if($user["user_id"] == $pr["user_id"]){
+				$id = $user["user_id"];
+			}
+		}
+	}	
+	return($id);
 }
 
 

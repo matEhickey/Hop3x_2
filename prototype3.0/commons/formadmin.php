@@ -16,6 +16,7 @@
 					<input type="button" class="btn btn-primary btn-block" value="Creation de nouvel utilisateur" onClick="location.href='../../views/users/newUser.php';">
 					<input type="button" class="btn btn-primary btn-block" value="Gestion des utilisateurs" onClick="location.href='../../views/users/getTableOfUsers.php';">
 					<input type="button" class="btn btn-primary btn-block" value="Gestion des professeurs" onClick="location.href='../../views/users/getTableOfTeachers.php';">
+					<input type="button" class="btn btn-primary btn-block" value="Gestion des groups" onClick="location.href='../../views/users/getNewGroup.php';">
 				
 			</div>
 		</div>

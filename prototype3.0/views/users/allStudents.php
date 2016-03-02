@@ -4,7 +4,6 @@
 ?>	
 	
 <?php 
-//montrer de tablo des etudiants
 		$etudiant = getEtudiant();
 			echo "<div class=table-responsive>";
 			echo "<table class= table >";

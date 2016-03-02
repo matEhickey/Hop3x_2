@@ -3,9 +3,9 @@
 function createEtudiant($user_id){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "abcde";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*,$password*/);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam ,$password*);
 	$requete = "INSERT INTO `etudiants` (
 		`user_id`
 	)
@@ -24,9 +24,9 @@ function createEtudiant($user_id){
 function getEtudiant(){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "abcde";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*, $password*/);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam , $password);
 
 	$requete = "	SELECT * FROM  `etudiants` INNER JOIN `Users` ON etudiants.user_id = Users.id ";
 	$retour = [];
@@ -46,9 +46,9 @@ function getEtudiant(){
 function updateEtudiant($id,$nom,$prenom,$group,$email){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "12345";
-	$database = "test_db";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*$password*/);
+	$password = "abcde";
+	$database = "hop3x";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password*);
 	$requete ="UPDATE `etudiant` SET `nom` = '".$nom."' ,`prenom` = '".$prenom."' ,`group` = '".$group."' ,`email` = '".$email."' WHERE id=".$id;
 	$statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont ete prises en compte</h3>";
@@ -61,9 +61,9 @@ function updateEtudiant($id,$nom,$prenom,$group,$email){
 function deleteEtudiant($id){
 	$serverName = "localhost";
 	$usernam = "root";
-	//$password = "12345";
+	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam /*$password*/);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
 	$requete ="DELETE FROM `etudiant` WHERE `user_id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		echo "<h3>Les modifications ont ete prises en compte</h3>";
@@ -74,5 +74,20 @@ function deleteEtudiant($id){
 	$conn=null;
 }
 
-
+function getEtudiantId($pr){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$id = -1;
+	$users = getEtudiant();
+	if(count($users)>0){
+		foreach($users as $user){
+			if($user["user_id"] == $pr["user_id"]){
+				$id = $user["user_id"];
+			}
+		}
+	}	
+	return($id);
+}
 ?>

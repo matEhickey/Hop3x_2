@@ -125,7 +125,7 @@
 	
 ?>
 
-	<input type="button" class="btn btn-primary btn-block" value="Ajouter plus" onClick="location.href='adminajout.php';">
+	<input type="button" class="btn btn-primary btn-block" value="Ajouter plus" onClick="location.href='../../views/users/newUser.php';">
 </div>
 		</div>
 		</div>
