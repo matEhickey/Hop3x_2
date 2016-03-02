@@ -165,6 +165,42 @@ function getUserName(){
 	$conn=null;
 	return($retour);
 }
-
+//verifie si le login et le password sont correspondant dans la base
+function loginPasswordOK($username,$password){
+ 	
+ 	$ok = -1;
+ 	$user = getUserByUsername($username);
+ 	if($user != -1){
+ 		if(strcmp($user["motdePasse"],$password)==0){
+ 			$ok = $user;
+ 		}
+ 	}
+ 	return($ok);
+ }
+ 
+ 
+ /*
+ -fonction qui renvoi faux si l'ulitisateur n'est pas coonecte
+ - (ie qu'il n'as pas de cookie id, ou que son cooki id et cleSecure ne correspondent pas)
+ - et qui renvoi son id si il est bien connecté
+ -*/
+ function isConnected(){
+ 	
+ 	$user_id = $_COOKIE["id"];
+ 	//echo 
+ 	if($user_id != null){
+ 		$user = getUserById(intval($user_id));
+ 		if(strcmp($user["cleSecureCoockie"],$user["cleSecureCoockie"])==0){
+ 			return($user["id"]);
+ 		}
+ 		else{
+ 			return(false);
+ 		}
+ 	}
+ 	else{
+ 		return(false);
+ 	}
+ }
+ 
 
 ?>
