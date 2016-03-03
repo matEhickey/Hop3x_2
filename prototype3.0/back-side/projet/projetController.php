@@ -1,105 +1,70 @@
 <?php
+public class ProjetController{
+	private $host = "localhost";
+	private $username = "root";
+	private $password = "abcde";
+	private $database = "hop3x";
+	private $con=null;
 
-function createProjet($session_id,$nom){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
-	$requete = "INSERT INTO `projet` (
-		`session_id`,
-		`nom`
-	)
-	VALUES (
-		'".$session_id."',
-		'".$nom."'
-	);";
-	$statement = $conn->query($requete);
-	if($statement == TRUE) {
-		echo "<h3>Les modifications ont été prises en compte</h3>";
+	public function getConnexion(){
+		return new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->username, '');
 	}
-	else{
-		echo "<h3>Erreur, veuillez recommencer</h3>";
-	}
-	$conn=null;
-}
-function getProjet(){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete = "	SELECT * FROM  `projet` ";
-	$retour = [];
-	if ($statement = $conn->query($requete)) {
-		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"session_id" => $row['session_id'],"nom" => $row['nom']);
-			array_push($retour,$temp);
+	function createProjet($nom){
+		$conn = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->username, '');
+		$requete = "INSERT INTO `projet` (
+			`nom`
+		)
+		VALUES (
+			'".$nom."'
+		);";
+		$statement = $conn->query($requete);
+		if($statement == TRUE) {
+			return true;
 		}
-	}
-	else { 
-		die("fail requete");
-	}
-	$conn=null;
-	return($retour);
-}
-
-function getProjetBySession($session_id){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete = "SELECT * FROM `projet` WHERE `session_id` = ".$session_id;
-	$retour = [];
-	if ($statement = $conn->query($requete)) {
-		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"session_id" => $row['session_id'],"nom" => $row['nom']);
-			array_push($retour,$temp);
+		else{
+			return false;
 		}
+		$conn=null;
 	}
-	else { 
-		echo $requete."<br>";
-		die("fail requete");
+	function getProjet(){
+		$conn = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->username,'');
+		$requete = "	SELECT * FROM  `projet` ";
+		$retour = [];
+		if ($statement = $conn->query($requete)) {
+			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+				$temp = array("id" => $row['id'],"nom" => $row['nom']);
+				array_push($retour,$temp);
+			}
+		}
+		else { 
+			die("fail requete");
+		}
+		$conn=null;
+		return($retour);
 	}
-	$conn=null;
-	return($retour);
+	function updateProjet($id,$nom){
+		$conn = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->username,'');
+		$requete ="UPDATE `projet` SET `id` = '".$id."' ,`nom` = '".$nom."' WHERE id=".$id;
+		$statement = $conn->query($requete);	if($statement == TRUE) {
+			echo "<h3>Les modifications ont été prises en compte</h3>";
+		}
+		else{
+			echo "<h3>Erreur, veuillez recommencer</h3>";
+		}
+		$conn=null;
+	}
+	function deleteProjet($id){
+		$conn = new PDO('mysql:host='.$this->host.';dbname='.$this->database, $this->username, '');
+		$requete ="DELETE FROM `projet` WHERE `id` =".$id;
+		$statement = $conn->query($requete);	if($statement== TRUE) {
+			echo "<h3>Les modifications ont été prises en compte</h3>";
+		}
+		else{
+			echo "<h3>Erreur, veuillez recommencer</h3>";
+		}
+		$conn=null;
+	}
+
 }
-function updateProjet($id,$id,$session_id,$nom){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete ="UPDATE `projet` SET `session_id` = '".$session_id."' ,`nom` = '".$nom."' WHERE id=".$id;
-	$statement = $conn->query($requete);	if($statement == TRUE) {
-		echo "<h3>Les modifications ont été prises en compte</h3>";
-	}
-	else{
-		echo "<h3>Erreur, veuillez recommencer</h3>";
-	}
-	$conn=null;
-}
-function deleteProjet($id){
-	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
-	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-
-	$requete ="DELETE FROM `projet` WHERE `id` =".$id;
-	$statement = $conn->query($requete);	if($statement== TRUE) {
-		echo "<h3>Les modifications ont été prises en compte</h3>";
-	}
-	else{
-		echo "<h3>Erreur, veuillez recommencer</h3>";
-	}
-	$conn=null;
-}
-
-
 ?>
