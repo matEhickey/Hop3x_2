@@ -68,11 +68,26 @@ function getUserIdByUsername($u_name){
 			}
 		}
 	}
-	
-	
-	
-	
 	return($user_id);
+}
+
+//utilise le username pour renvoyer le user et ses champs
+function getUserByUsername($u_name){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";	
+	$userRetour = -1;
+	$users = getUsers();
+	if(count($users)>0){
+		foreach($users as $user){
+			if($user["username"] == $u_name){
+				$userRetour = $user;
+			}
+		}
+	}
+	
+	return($userRetour);
 }
 
 function getUserId($pr){
@@ -92,6 +107,25 @@ function getUserId($pr){
 	return($id);
 }
 
+//utilise le id pour renvoyer le user et ses champs
+function getUserById($id){
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$userRetour = -1;
+	
+	$users = getUsers();
+	if(count($users)>0){
+		foreach($users as $user){
+			if($user["id"] == $id){
+				$userRetour = $user;
+			}
+		}
+	}
+	
+	return($userRetour);
+}
 
 function updateUsers($id,$id,$username,$motdePasse,$nom,$prenom,$email,$cleSecureCoockie,$typeUtilisateur){
 	$serverName = "localhost";
