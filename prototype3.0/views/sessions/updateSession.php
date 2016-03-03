@@ -3,7 +3,7 @@
 	include("../../back-side/sessions/sessionController.php");
 	
 	$id=$_GET["id"];
-	$session=getSession($id);
+	$session=getSessionbyId($id);
 ?>
 
 

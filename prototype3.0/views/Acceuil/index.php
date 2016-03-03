@@ -65,7 +65,7 @@
 				<button class="btn btn-primary" type="submit" name="connexionButton">Connexion</button>
 				</div>
 			</form>
-			<a href="../users/allUsers.php"><button class="btn btn-primary">Espace administrateur</button></a>
+			<a href="../users/getTableOfUsers.php"><button class="btn btn-primary">Espace administrateur</button></a>
 		</div>
 		
 		

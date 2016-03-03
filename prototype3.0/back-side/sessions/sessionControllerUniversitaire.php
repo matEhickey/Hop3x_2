@@ -34,11 +34,13 @@ function getSessionUniversitaire(){
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete = "	SELECT * FROM  `sessionUniversitaire` INNER JOIN `session` ON session.id = sessionUniversitaire.session_id";
+	$requete = "	SELECT * 
+				FROM `session` INNER JOIN  `sessionUniversitaire`  
+				ON session.id = sessionUniversitaire.session_id ";
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id" => $row['id'],"enseignant_id" => $row['enseignant_id'],"session_id" => $row['session_id'],
+			$temp = array("id" => $row["id"],"enseignant_id" => $row['enseignant_id'],"session_id" => $row['session_id'],
 						"dateDebutSession" => $row['dateDebutSession'], "dateFinSession" => $row['dateFinSession'],
 						"name" => $row["name"]
 					);
@@ -59,7 +61,7 @@ function getSessionUniversitairebyId($id){
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
 
-	$requete = "	SELECT * FROM  `sessionUniversitaire` WHERE `id` =".$id;
+	$requete = "	SELECT * FROM  `sessionUniversitaire` WHERE `id` = ".$id;
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
 		while($row = $statement->fetch(PDO::FETCH_ASSOC)){

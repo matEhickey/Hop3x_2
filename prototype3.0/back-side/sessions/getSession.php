@@ -1,13 +1,17 @@
 <?php 
  	include("../../commons/commonBegin.php");
 	include("sessionController.php");
+	include("sessionPersoController.php");
 	
 	/* Obtention des parametres */
 	$user_id= $_POST['user_id'];
 	$name=htmlentities($_POST["sessionName"]);
-		
+	
+	$session_id = createSession($user_id,$name);	
+	
 	/* Insertion d'une nouvelle session */
-	if(createSession($user_id,$name) > 0){
+	if($session_id > 0){
+		createSessionperso($session_id);
 		header('Location: ../../views/sessions/sessionView.php');
 	}else{
 		echo "<h3>probleme d'insertion</h3>";

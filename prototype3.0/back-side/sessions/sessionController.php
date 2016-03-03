@@ -74,9 +74,7 @@ function getSessionbyId($id){
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+
 	$requete = "	SELECT * FROM  `session` WHERE `id` =".$id;
 	$retour = [];
 	if ($statement = $conn->query($requete)) {
@@ -97,9 +95,7 @@ function updateSession($id,$user_id,$name){
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+
 	$requete ="UPDATE `session` SET `id` = '".$id."' ,`user_id` = '".$user_id."' ,`name` = '".$name."' WHERE id=".$id;
 	$statement = $conn->query($requete);	
 	if($statement == TRUE) {
@@ -116,9 +112,7 @@ function deleteSession($id){
 	$password = "abcde";
 	$database = "hop3x";
 	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+
 	$requete ="DELETE FROM `session` WHERE `id` =".$id;
 	$statement = $conn->query($requete);	if($statement== TRUE) {
 		return true;
