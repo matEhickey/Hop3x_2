@@ -4,7 +4,7 @@
 
 	
 
-	$enonce_id=$_GET['enonce_id'];
+	$id=$_GET['id'];
 	$sessionUniversitaire_id=$_GET['sessionUniversitaire_id'];
 
 ?>
@@ -15,7 +15,7 @@
 <div class="col-md-2"></div>
 <div class="col-md-8">
 	<form action="../../back-side/test/gestionTest.php" method="post" class="form-horizontal">
-		<input type="hidden" name="enonce_id" value=<?php echo "\"".$enonce_id."\""; ?>>
+		<input type="hidden" name="id" value=<?php echo "\"".$id."\""; ?>>
 		<input type="hidden" name="sessionUniversitaire_id" value=<?php echo "\"".$sessionUniversitaire_id."\""; ?>>
 	  <div class="form-group">
 	    <label for="message" class="col-sm-2 control-label">Message</label>

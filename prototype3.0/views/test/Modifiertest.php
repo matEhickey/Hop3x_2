@@ -2,11 +2,16 @@
 <?php 
  	include("../../commons/commonBegin.php");
 	include("../../back-side/test/TestController.php");
+	
+	if($_GET['id']==null || $_GET['test_id']==null){
+		header('Location: ../../views/Utilitaires/404.php');
+		exit;
+	}
 
-
+	$t=new TestController();
 	$id=$_GET['id'];
 	$test_id=$_GET['test_id'];
-	$test=getTestbyId($test_id);
+	$test=$t->getTestbyId($test_id);
 
 ?>
 <h1>Modification</h1>

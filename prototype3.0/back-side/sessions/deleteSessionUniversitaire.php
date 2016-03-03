@@ -3,7 +3,8 @@
 	include("sessionControllerUniversitaire.php");
 	$id=$_GET["id"];
 	$enseignant_id=$_GET["enseignant_id"];
-	deleteSessionUniversitaire($id);
+	$s=new SessionUniversitaireController();
+	$s->deleteSessionUniversitaire($id);
 	header('Location: ../../views/sessions/sessionViewUniversitaire.php?enseignant_id='.$enseignant_id);
 ?>
 

@@ -1,32 +1,20 @@
 <?php 
  	include("../../commons/commonBegin.php");
 	include("EnonceController.php");
- 	
+ 	$ec=new EnonceController();
  	
  	if(isset($_POST['creer'])){
  		$sessionUniversitaire_id=$_POST['sessionUniversitaire_id'];
 	 	$message=$_POST['message'];
 	 	$messagewin=$_POST['messagewin'];
-	 	createEnoncee($message,$messagewin,$sessionUniversitaire_id);
-	 	//header('Location: ../../views/Enonce/listeEnoncee.php?idsession='.$idsession);	
+	 	$ec->createEnoncee($message,$messagewin,$sessionUniversitaire_id);
  	}
- 	if(isset($_POST['Modifier'])){
+ 	if(isset($_POST['modifier'])){
  		$sessionUniversitaire_id=$_POST['sessionUniversitaire_id'];
- 		$id=$_POST['id'];
+ 		$id=$_POST['idEnonce'];
  		$message=$_POST['message'];
 	 	$messagewin=$_POST['messagewin'];
-
-	 	//echo "idsession :".$idsession;
-
-	 	//echo "id :".$id;
-
-	 	//echo "message :".$message;
-
-	 	//echo "messagewin :".$messagewin;
-	 	updateEnoncee($id,$message,$messagewin,$sessionUniversitaire_id);
-	 	//$var='../../views/Enonce/listeEnoncee.php?idsession='.$idsession;
-	 	//echo $idsession."<br/>";
-	 	//header('Location: ../../views/Enonce/listeEnoncee.php?idsession='.$idsession);
+	 	$ec->updateEnoncee($idEnonce,$message,$messagewin,$sessionUniversitaire_id);
  	}
  	header('Location: ../../views/Enonce/listeEnoncee.php?sessionUniversitaire_id='.$sessionUniversitaire_id);
  	
