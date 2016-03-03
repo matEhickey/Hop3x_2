@@ -1,21 +1,21 @@
 <?php 
  	include("../../commons/commonBegin.php");
 	include("../../back-side/sessions/sessionControllerUniversitaire.php");
+	
 	/* Obtention des arguments */
 	$enseignant_id = $_GET['enseignant_id'];
-	$s=new SessionUniversitaireController();
-	$sessionsUniversitaires = $s->getSessionUniversitaire();
+	$sessionsUniversitaires = getSessionUniversitaire();	//mais a quoi sert de recuperer un enseignant id si c'est pour donner tout les sessions confondu ???
+
 ?>
-<div class="row hop3xBox">
-			<!-- Panneau horizontal du dessus, fonctions importantes-->
-			<h1>Session Universitaire</h1>
-</div>
-<hr>
+
+
+
+
 <p>
 	<a class="btn btn-primary" href=<?php echo "\"ajoutSessionUniversitaire.php?enseignant_id=". $enseignant_id ."\""; ?> >
-		<span class="glyphicon glyphicon-plus"></span> Ajouter une session Universitaire</a>
-	<a class="btn btn-primary" href=<?php echo "\"../../views/sessionPersonnel/ajoutSessionPersonnel.php?enseignant_id=". $enseignant_id ."\""; ?> >
-		<span class="glyphicon glyphicon-plus"></span> Ajouter une session</a></p>
+		<span"></span> Ajouter une session Universitaire</a>
+	<a class="btn btn-primary" href="#" >
+		<span"></span> Ajouter une session</a></p>
 
 <div class="row">
 	<div class="col-md-2">

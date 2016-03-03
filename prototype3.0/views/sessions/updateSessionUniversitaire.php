@@ -3,16 +3,11 @@
 	include("../../back-side/sessions/sessionControllerUniversitaire.php");
 	
 	$id=$_GET["id"];
-	$s=new SessionUniversitaireController();
-	$session=$s->getSessionUniversitaire($id);
+	$session=getSessionUniversitaire($id);
 ?>
-<div class="row hop3xBox">
-			<!-- Panneau horizontal du dessus, fonctions importantes-->
-			<h2><?php echo "Modification de la session Universitaire id= ". $id;?></h2>
-</div>
-<hr>
 
 
+<h2><?php echo "Modification de la session Universitaire id= ". $id;?></h2>
 
 
 <div class="col-md-8">

@@ -5,7 +5,7 @@ function createEtudiant($user_id){
 	$usernam = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam ,$password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam ,$password*);
 	$requete = "INSERT INTO `etudiants` (
 		`user_id`
 	)
@@ -48,7 +48,7 @@ function updateEtudiant($id,$nom,$prenom,$group,$email){
 	$usernam = "root";
 	$password = "abcde";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password*);
 	$requete ="UPDATE `etudiant` SET `nom` = '".$nom."' ,`prenom` = '".$prenom."' ,`group` = '".$group."' ,`email` = '".$email."' WHERE id=".$id;
 	$statement = $conn->query($requete);	if($statement == TRUE) {
 		echo "<h3>Les modifications ont ete prises en compte</h3>";

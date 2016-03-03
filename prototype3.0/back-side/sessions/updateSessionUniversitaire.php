@@ -9,10 +9,9 @@
 	$sessionName=htmlentities($_POST["sessionName"]);
 	$dateDebutSession=$_POST["dateDebutSession"];
 	$dateFinSession=$_POST["dateFinSession"];
-	$s=new SessionUniversitaireController();
 	
 	/* Insertion d'une nouvelle session */
-	if($s->updateSessionUniversitaire($id,$enseignant_id,$name,$dateDebutSession,$dateFinSession)){
+	if(updateSessionUniversitaire($id,$enseignant_id,$name,$dateDebutSession,$dateFinSession)){
 		//Redirection vers la page qui liste les sessions
 		header('Location: ../../views/sessions/sessionViewUniversitaire.php?enseignant_id='.$enseignant_id);
 	}else{
