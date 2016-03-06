@@ -1,7 +1,19 @@
 <?php
 	include("../../commons/commonBegin.php");
-	$session = $_GET["session_id"];
+	include_once("../../back-side/sessions/sessionControllerUniversitaire.php");
+	include_once("../../back-side/sessions/instanceUniversitaireController.php");
+	include("../../back-side/users/scaffoldUsers.php");//pour tester la connection
 	
+	$session = $_GET["session_id"];
+	$user_id = isConnected();
+	
+	$isSessionUniversitaire = isUniversitaire($session);	//si la session est une instance d'un session universitaire (retourne sa valeur ou false)
+	
+	if($isSessionUniversitaire){
+		include("../../back-side/Enonce/EnonceController.php");
+		$sessionUniversitaire_id = $isSessionUniversitaire;
+		$enonces = getEnoncee($sessionUniversitaire_id);
+	}
 ?>
 
     <!-- CodeMirror-->
@@ -47,17 +59,37 @@
 		</div>
 		<hr>
 		<div class="row">
-		<!-- Panneau central, avec le panneau de navigation des fichiers, l editeur de texte, et le menu de tests-->
+		<!-- Panneau central, avec , le panneau de navigation des fichiers, la vue enonce, l editeur de texte, et le menu de tests-->
 			<div class="col-md-2" id="menuProjets">
 				<!-- fichiers-->
 				
 			</div>
 			
 			<div class="col-md-10">
+				
+				<?php
+					if($isSessionUniversitaire){
+				?>
+				<!-- enonces -->
+					<div class="row" id="fenetreEnonce" style="background-color: yellow;">
+						<p>Enonces</p>
+						<?php
+							for($i=0;$i<count($enonces);$i++){
+								echo "<p id=\"messageEnonce".$i."\" class=\"enonce\"> <button onclick=\"enoncePrecedent(); \"><<</button> ".$enonces[$i]["message"]." <button onclick=\"enonceSuivant();\">>></button></p>";
+								echo "<p id=\"messageWinEnonce".$i."\" style=\"display: none;\">".$enonces[$i]["messagewin"]."</p>";
+							}
+						
+						
+						?>
+					</div>
+				<?php
+					}
+				?>
+				
 				<!-- editeur -->			
 				
 					
-					 <div  align="left">
+					 <div  align="left" style="padding-top: 15px;">
 					 
 					 <!-- Ici viendra le code -->
 						  <textarea  id="editeur"></textarea>
@@ -91,13 +123,13 @@
 						    
 						    //recupere la session
 						    var session = "<?php Print($session); ?>";
-    						    
-						    
-						    
+    						    var user_id = "<?php Print($user_id); ?>";
 						    loadMenuRapport(session);
 						    //gestion de l'etat d'activite de l'utilisateur
-						    //activityTick();
-						    //checkState();
+						    activityTick(user_id);
+						  
+						    
+						    initEnonces();
 						    
 						});
 					   
