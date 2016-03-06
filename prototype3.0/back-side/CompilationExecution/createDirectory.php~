@@ -6,6 +6,8 @@
 	$session_id = $_GET['session_id'];
 	$path = "../../tempFile/session_".$session_id;
 	
+	
+	
 	if(is_dir($path)){
 		rmdir($path);
 	}
@@ -25,13 +27,13 @@
 		$files = getFichierByProjectID($projet["id"]);
 		foreach($files as $file){
 			$fileName = $file["nom"].".".$file["language"];
-			$file = fopen($projectDir."/".$fileName,"w+");
+			$newfile = fopen($projectDir."/".$fileName,"w+");
 			
 			$content = reconstructFichier($file["id"]);
 			
 			
-			echo $content;
-			fclose($file);
+			fwrite($newfile,$content);
+			fclose($newfile);
 		}
 	}
 

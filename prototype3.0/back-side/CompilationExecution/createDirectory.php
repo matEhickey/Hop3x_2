@@ -6,6 +6,8 @@
 	$session_id = $_GET['session_id'];
 	$path = "../../tempFile/session_".$session_id;
 	
+	
+	
 	if(is_dir($path)){
 		rmdir($path);
 	}
