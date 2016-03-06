@@ -71,17 +71,25 @@
 					if($isSessionUniversitaire){
 				?>
 				<!-- enonces -->
-					<div class="row" id="fenetreEnonce" style="background-color: yellow;">
-						<p>Enonces</p>
+					<div class="row" id="fenetreEnonce" style="background-color: yellow; padding: 5px;">
+						<h4>Enonces</h4>
+						
 						<?php
+							
 							for($i=0;$i<count($enonces);$i++){
-								echo "<p id=\"messageEnonce".$i."\" class=\"enonce\"> <button onclick=\"enoncePrecedent(); \"><<</button> ".$enonces[$i]["message"]." <button onclick=\"enonceSuivant();\">>></button></p>";
-								echo "<p id=\"messageWinEnonce".$i."\" style=\"display: none;\">".$enonces[$i]["messagewin"]."</p>";
+								
+									echo "<p id=\"messageEnonce".$i."\" class=\"enonce\"> ".str_replace("\n","<br>",$enonces[$i]["message"])."</p>";
+									echo "<p id=\"messageWinEnonce".$i."\" style=\"display: none;\">".$enonces[$i]["messagewin"]."</p>";
+								
 							}
-						
-						
 						?>
+						<div class="row">
+							<button onclick="enoncePrecedent();" class="btn">&laquo;</button>
+							<button onclick="enonceSuivant();" class="btn">&raquo;</button>
+						</div>
+						
 					</div>
+					
 				<?php
 					}
 				?>
@@ -157,12 +165,12 @@
 			<div class="col-md-3">
 			</div>
 			-->
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<h3>Terminal</h3>
 				<textarea disabled class="form-control">User: ~/Documents/Projet1/  :  </textarea>
 			</div>
 			
-			<div class="col-md-6">
+			<div class="col-md-6" style="display: none;">
 				<h3>Debug (developpement/tests)</h3>
 				<textarea disabled class="form-control" id="debugView" rows=10> # </textarea>
 				<a href="../sessions/sessionView.php"><button class="btn btn-primary btn-lg btn-block">Retour aux sessions</button></a>

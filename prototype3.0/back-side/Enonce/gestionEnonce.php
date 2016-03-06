@@ -7,7 +7,7 @@
  		$sessionUniversitaire_id=$_POST['sessionUniversitaire_id'];
 	 	$message=$_POST['message'];
 	 	$messagewin=$_POST['messagewin'];
-	 	createEnoncee($message,$messagewin,$sessionUniversitaire_id);
+	 	createEnoncee(htmlentities($message),htmlentities($messagewin),$sessionUniversitaire_id);
 	 	//header('Location: ../../views/Enonce/listeEnoncee.php?idsession='.$idsession);	
  	}
  	if(isset($_POST['Modifier'])){
@@ -23,7 +23,7 @@
 	 	//echo "message :".$message;
 
 	 	//echo "messagewin :".$messagewin;
-	 	updateEnoncee($id,$message,$messagewin,$sessionUniversitaire_id);
+	 	updateEnoncee($id,htmlentities($message),htmlentities($messagewin),$sessionUniversitaire_id);
 	 	//$var='../../views/Enonce/listeEnoncee.php?idsession='.$idsession;
 	 	//echo $idsession."<br/>";
 	 	//header('Location: ../../views/Enonce/listeEnoncee.php?idsession='.$idsession);

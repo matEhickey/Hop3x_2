@@ -13,7 +13,7 @@
 
 <p>
 	<a class="btn btn-primary" href=<?php echo "\"ajoutSessionUniversitaire.php?enseignant_id=". $enseignant_id ."\""; ?> >
-		 Ajouter une session Universitaire</a>
+		<span"></span> Ajouter une session Universitaire</a>
 </p>
 
 <div class="row">

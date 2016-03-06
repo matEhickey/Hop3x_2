@@ -26,7 +26,7 @@
 		foreach($enoncees as $enoncee){
 			echo "<tr>";
 			echo "<td>".$enoncee["id"]."</td>";
-			echo "<td>".$enoncee["message"]."</td>";
+			echo "<td>".str_replace("\n","<br>",$enoncee["message"])."</td>";
 			echo "<td>".$enoncee["messagewin"]."</td>";
 			echo "<td>".$enoncee["sessionUniversitaire_id"]."</td>";
 			echo "<td><a href='../test/listTest.php?enonce_id=".$enoncee["id"]."&sessionUniversitaire_id=".$sessionUniversitaire_id."' class='btn btn-primary'>Gestion des Tests</a></td>";
@@ -43,6 +43,7 @@
 	<div class="col-md-2">
 	</div>
 </div>
+<button onclick="window.history.back();">Retour</button>
 
 
 <?php
