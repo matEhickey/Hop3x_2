@@ -18,6 +18,7 @@
 	else{
 		
 		$user = loginPasswordOK($username,$password);
+		$userStatus = checkEtudProf($username);	
 		
 		
 		if($user<0){
@@ -37,7 +38,17 @@
 				header('Location: ../../views/Acceuil/index.php?message=Il y a eu un probleme avec la connection');
 			}
 			else{
-				header('Location: ../../views/sessions/sessionView.php');
+				if ($userStatus == "etudiant")
+				{
+					echo '<script>sendUserIdAjax('.$id.');</script>';
+					header('Location: ../../views/sessions/sessionView.php');
+				}
+				if ($userStatus == "professeur")
+				{
+					echo "<script>sendUserIdAjax(".$id.");</script>";
+					header('Location: ../../views/sessions/sessionProfesseur.php?id='.$id);
+				}
+				
 			}
 			
 		}

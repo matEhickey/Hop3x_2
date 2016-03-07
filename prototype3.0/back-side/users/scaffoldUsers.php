@@ -236,5 +236,53 @@ function loginPasswordOK($username,$password){
  	}
  }
  
+function checkEtudProf($username)
+{
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+
+	$user_id = getUserIdByUsername($username);
+	$professeurs = "SELECT `user_id` FROM  `professeur`";
+	$retour = [];
+	if ($statement = $conn->query($professeurs)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("user_id" => $row['user_id']);
+		array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail professeurs");
+	}
+	if(count($retour) > 0){
+		foreach($retour as $user){
+			if($user["user_id"] == $user_id){
+				$res = "professeur";
+			}
+		}
+	}		
+	$etudiants = "SELECT `user_id` FROM  `etudiants`";
+	$retour = [];
+	if ($statement = $conn->query($etudiants)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("user_id" => $row['user_id']);
+		array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail etudiants");
+	}
+	if(count($retour) > 0){
+		foreach($retour as $user){
+			if($user["user_id"] == $user_id){
+				$res = "etudiant";
+			}
+		}
+	}
+	$conn=null;
+	return($res);
+}
 
 ?>

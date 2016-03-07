@@ -123,5 +123,34 @@ function deleteSession($id){
 	$conn=null;
 }
 
-
+function getAllUserForGroup($id_group)
+{
+	$serverName = "localhost";
+	$username = "root";
+	$password = "abcde";
+	$database = "hop3x";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$requete = "	SELECT * FROM  `rgroup` ";
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("id_user" => $row['id_user'],"id_group" => $row['id_group']);
+			array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$res = [];
+	foreach($retour as $key => $value) 
+	{
+		if ($value['id_group'] == $id_group)
+		{
+			$temp = array("id_user" => $value['id_user']);
+			array_push($res, $temp);
+		}
+	}
+	$conn = null;
+	return($res);
+}
 ?>
