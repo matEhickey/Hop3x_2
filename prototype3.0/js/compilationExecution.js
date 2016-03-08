@@ -2,7 +2,7 @@ var compile = function(session_id){		//appui sur le bouton de l'editeur
 	//creation des fichiers temporaire
 	creerDossier(session_id);		//appel fichier qui creer et rempli le dossier
 	
-	tenteCompilation(session_id);
+	
 	
 }
 
@@ -20,7 +20,7 @@ var creerDossier = function(session_id){
         
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-               document.getElementById("debugView").innerHTML += xmlhttp.responseText;
+               tenteCompilation(session_id);
             }
             else{
             	if((xmlhttp.readyState == 4) && (xmlhttp.status != 200)){
@@ -51,8 +51,8 @@ var tenteCompilation = function(session_id){
         
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-               //document.getElementById("debugView").innerHTML += xmlhttp.responseText;
-               console.log(xmlhttp.responseText);
+               document.getElementById("terminal").innerHTML = xmlhttp.responseText;
+               console.log("retour programme :\n"+xmlhttp.responseText);
             }
             else{
             	if((xmlhttp.readyState == 4) && (xmlhttp.status != 200)){
