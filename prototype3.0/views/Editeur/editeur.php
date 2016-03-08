@@ -167,7 +167,7 @@
 			-->
 			<div class="col-md-12">
 				<h3>Terminal</h3>
-				<textarea disabled class="form-control">User: ~/Documents/Projet1/  :  </textarea>
+				<textarea id="terminal" disabled class="form-control">User: ~/Documents/Projet1/  :  </textarea>
 			</div>
 			
 			<div class="col-md-6" style="display: none;">

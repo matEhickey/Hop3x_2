@@ -1,2 +1,0 @@
-print("wazza")
-print("yoooo")

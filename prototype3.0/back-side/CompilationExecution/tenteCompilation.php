@@ -2,15 +2,15 @@
 
 //dossier session
 	$session_id = $_GET['session_id'];
-	$path = "../../tempFile/session_".$session_id."/coucou/";
+	$path = "../../../../tempFile/session_".$session_id."/coucou/";
 	
 	
 	if(is_dir($path)){
 		
-		exec( "./exec.sh"  ,$chaine,$retvar);
-		var_dump($chaine);
-
-		echo "return val =".$retvar;
+		
+		
+		echo(passthru("python ".$path."coucou.py"));					//"python ../../tempFile/session_".$session_id."/coucou/coucou.py"));
+		
 	
 	
 	}
