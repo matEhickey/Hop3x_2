@@ -51,6 +51,14 @@
         
     }
     
+    //fonction qui re-converti les char non admissibles
+    function decrypt($chaine){
+    	$retour = str_replace("®","+",$chaine);
+    	$retour = str_replace("¥","'",$retour);
+    	$retour = str_replace("™","&",$retour);
+    	return($retour);
+    }
+    
     
     
     function reconstructFichier($file_id){
@@ -62,9 +70,14 @@
 		    $listOfEvents = [];
 		    
 		    foreach($events as $event){
-			$texts = getEventtext($event["id"]);
+		    	$texts = [];
+			$textsTamp = getEventtext($event["id"]);
+			foreach($textsTamp as $textLine){
+				array_push($texts,decrypt($textLine));
+			}
+			
 			$removed = getEventremoved($event["id"]);
-			array_push($listOfEvents,new Event($event["time"],$event["from_l"],$event["to_l"],$event["from_c"],$event["to_c"],$texts,$removed));
+			array_push($listOfEvents,new Event($event["time"],intval($event["from_l"]),intval($event["to_l"]),intval($event["from_c"]),intval($event["to_c"]),$texts,$removed));
 		    }
 		    
 		    
@@ -79,6 +92,9 @@
 		    	//echo "evnt ".$nEvent."<br>";
 		    	$nEvent ++;
 		    	
+		    	if(count($file)<= $event->f_l){
+		    		array_insert($file,$event->f_l,"");
+		    	}
 			$before = substr($file[$event->f_l], 0 ,$event->f_c);    //debut de la premiere ligne a etre modifie
 			$after = substr($file[$event->t_l],$event->t_c);    //fin de la derniere ligne a etre modifie
 		
@@ -168,8 +184,8 @@
 			    	if($j != count($file)){$chaine .= "\n";}
 			    	
 			    }
-			    
-			    return($chaine);
+			    $content =  $chaine;
+			    return($content);
 		
 			    //echo "<br><br><br>";
 		    

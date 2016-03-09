@@ -1,9 +1,0 @@
-<?php
-	include_once("projetController.php");
-	$session_id = $_GET["session_id"];
-	$nom = "nouveauProjet";
-	createProjet($session_id,$nom);
-	
-	
-	
-?>

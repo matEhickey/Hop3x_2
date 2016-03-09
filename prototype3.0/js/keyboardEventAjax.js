@@ -52,6 +52,7 @@ var SauvegardeKeyboardEvent = function(file_id,time,from_l,to_l,from_c,to_c,text
 	
 }
 
+
 var saveTextEvent = function(event_id,text){
 
 	
@@ -63,26 +64,41 @@ var saveTextEvent = function(event_id,text){
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         
+        
+
+        
+        
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-               document.getElementById("debugView").innerHTML += xmlhttp.responseText;
+               console.log(xmlhttp.responseText);
+               //alert("ca marche");
             }
             else{
-            	if((xmlhttp.readyState == 4) && (xmlhttp.status != 200)){
-            		console.log("Ca marche pas: \nreadyState ="+xmlhttp.readyState+"\n status ="+xmlhttp.status);
-            		console.log("Il y a eu un probleme avec les ligne de l'event");
-            		//erreurSauvegarde();
+            	if(xmlhttp.readyState != 4){
+            		//console.log("probleme avec le readyState(save event) :"+xmlhttp.readyState);
+            		//console.log("reponse :"+xmlhttp.responseText);
+            		
+            		//probleme, readystate est bloque a 1, sauf exception, bizarre
             	}
+            	else{
+            		console.log("probleme avec le status :"+xmlhttp.status);
+            	}
+            	
+            	
             }
         }
         
         
         
-        xmlhttp.open("GET","../../back-side/keyboardEvent/getLigneText.php?"        							
-        						+"event_id="+event_id
-        						+"&text="+text.replace(" ","%20").replace("\'", "!!APOST!!").replace("\#","!!DIEZ!!"));
+        xmlhttp.open("POST","../../back-side/keyboardEvent/getLigneText.php");
+        var params = "event_id="+event_id+"&text="+encrypt(text);
+        console.log(text);
+        
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.setRequestHeader("Content-length", params.length);
+        xmlhttp.setRequestHeader("Connection", "close");
        
-        xmlhttp.send();
+        xmlhttp.send(params);
 
 
 }
@@ -118,6 +134,36 @@ var saveRemovedEvent = function(event_id,text){
 
 
 }
+
+//car chaine.replace ne detecte pas l'apostrophe
+var remplaceApostrophe = function(chaine){
+	var nouvelleChaine="";
+	for(var i = 0; i<chaine.length;i++){
+		if(chaine[i] == "'"){
+			nouvelleChaine += '¥';
+			console.log("apostr");
+		}
+		else{
+			nouvelleChaine+=chaine[i];
+		}
+	}
+	return nouvelleChaine;
+}
+
+
+
+//fonctions de convertion de char non admissibles
+//il existe une fonction decrypt(chaine) qui fait la reciproque en php
+
+var encrypt = function(chaine){
+	var retour = chaine.replace("+","®");
+	var retour = retour.replace("&","™");
+	retour = remplaceApostrophe(retour);
+	return(retour);
+}
+
+
+
 
 
 
