@@ -13,7 +13,8 @@ var sessionsByGroups = function(id, id_group){
     {
         if (xhttp.readyState == 4 && xhttp.status == 200) 
         {
-            document.getElementById("sessionsUniversitaire").innerHTML = xhttp.responseText;                
+            document.getElementById("sessionsUniversitaire").innerHTML = xhttp.responseText; 
+            document.getElementById("elevesDuGroupes").innerHTML = "<h3>Eleves du groupes</h3>";                  
         }
         else{
             if((xhttp.readyState == 4) && (xhttp.status != 200))
@@ -23,7 +24,6 @@ var sessionsByGroups = function(id, id_group){
             }
         }
     }
-
-    xhttp.open("GET", "../../back-side/sessions/getSessionByGroup.php?id=" + id + "&id_group=" + id_group);
+    xhttp.open("GET", "../../back-side/sessions/getSessionPourGroupe.php?id=" + id + "&id_group=" + id_group);
     xhttp.send();
 }

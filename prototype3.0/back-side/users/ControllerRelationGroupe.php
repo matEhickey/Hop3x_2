@@ -76,5 +76,67 @@ function deleteRgroup($id){
 	$conn=null;
 }
 
+function getAllUsersForGroup($id_group)
+{
+	$serverName = "localhost";
+	$username = "root";
+	$password = "abcde";
+	$database = "hop3x";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
+	$requete = "	SELECT * FROM  `relation_groupe` ";
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("id_user" => $row['id_user'],"id_group" => $row['id_group']);
+			array_push($retour,$temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
 
+	$result = [];
+	foreach($retour as $key => $value) 
+	{
+		if ($value['id_group'] == $id_group)
+		{
+			$temp = array("id_user" => $value['id_user']);
+			array_push($result, $temp);
+		}
+	}
+	$conn = null;
+	return($result);
+}
+
+function getGroupsForProf($id_user)
+{
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "	SELECT * FROM  `relation_groupe` ";
+
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+			$temp = array("id_user" => $row['id_user'], "id_group" => $row['id_group']);
+			array_push($retour, $temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+
+	$result = [];
+	foreach($retour as $key => $value) {
+		if ($value['id_user'] == $id_user)
+		{
+			$temp = array("id_group" => $value['id_group']);
+			array_push($result, $temp);
+		}
+	}
+	$conn = null;
+	return($result);
+}
 ?>

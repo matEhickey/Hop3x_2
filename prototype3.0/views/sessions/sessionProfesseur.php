@@ -1,11 +1,12 @@
 <?php
 	include("../../commons/commonBegin.php");
-	include("../../back-side/sessions/scaffoldSessions.php");
-	include("../../back-side/sessions/sessionGroup.php");
-	include("../../back-side/sessions/etudiantsSession.php");
+	include("../../back-side/users/ControllerRelationGroupe.php");
+	include("../../back-side/users/ControllerGroupe.php");
+	include("../../back-side/sessions/sessionController.php");
+	include("../../back-side/sessions/getInfoPourSessionProfesseur.php");
 
 ?>
-<script src="../../js/etudiantsBySessionAjax.js"></script>
+<script src="../../js/etudiantsByGroupAjax.js"></script>
 <script src="../../js/sessionByGroupAjax.js"></script>
 
 	<title>Professeur</title>
@@ -17,7 +18,7 @@
 					<div class="col-md-4" id="affichageGroupe">
 						<h3>Affichage groupe</h3>
 						<?php
-							include("../../back-side/sessions/groupsSessions.php");
+							include("../../back-side/sessions/getGroupesPourProfesseur.php");
 						?>							
 					</div>
 

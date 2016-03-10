@@ -240,7 +240,7 @@ function loginPasswordOK($username,$password){
  
 function checkEtudProf($username)
 {
-	$serverName = "localhost";
+$serverName = "localhost";
 	$usernam = "root";
 	$database = "hop3x";
 	$password = "abcde";

@@ -40,12 +40,10 @@
 			else{
 				if ($userStatus == "etudiant")
 				{
-					echo '<script>sendUserIdAjax('.$id.');</script>';
 					header('Location: ../../views/sessions/sessionView.php');
 				}
 				if ($userStatus == "professeur")
 				{
-					echo "<script>sendUserIdAjax(".$id.");</script>";
 					header('Location: ../../views/sessions/sessionProfesseur.php?id='.$id);
 				}
 				

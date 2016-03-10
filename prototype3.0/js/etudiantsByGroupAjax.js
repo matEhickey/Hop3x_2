@@ -1,4 +1,4 @@
-var etudiantsBySessions = function(id, id_group, id_session)
+var etudiantsByGroup = function(id, id_group, id_session)
 {    
     if (window.XMLHttpRequest) 
     {
@@ -23,7 +23,6 @@ var etudiantsBySessions = function(id, id_group, id_session)
             }
         }
     }
-
-    xhttp.open("GET", "../../back-side/sessions/getEtudiantsBySession.php?id=" + id+ "&id_group=" + id_group + "&id_session=" + id_session);
+    xhttp.open("GET", "../../back-side/sessions/getEtudiantsPourGroupe.php?id=" + id+ "&id_group=" + id_group + "&id_session=" + id_session);
     xhttp.send();
 }
