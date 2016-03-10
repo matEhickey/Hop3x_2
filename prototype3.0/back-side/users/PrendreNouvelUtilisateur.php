@@ -3,7 +3,7 @@
 	include("ControllerUtilisateurs.php");
 	include("ControllerProfesseur.php");
 	include("ControllerEtudiant.php");
-	include("GenereInfoUtilisateur.php");
+	include("GenereInfoUtilisateurs.php");
 	
 	include("../../commons/commonBegin.php");
 	include("../../views/users/formadmin.php");
@@ -97,7 +97,7 @@
 	
 		
 	
-	include ("../../views/users/allUsers.php");
+	include ("../../views/users/Utilisateurs.php");
 	
 	
 	//si c'est un professeur, on l'ajoute aussi dans la table professeur
@@ -125,7 +125,7 @@
 	
 ?>
 
-	<input type="button" class="btn btn-primary btn-block" value="Ajouter plus" onClick="location.href='../../views/users/newUser.php';">
+	<input type="button" class="btn btn-primary btn-block" value="Ajouter plus" onClick="location.href='../../views/users/NouvelUtilisateur.php';">
 </div>
 		</div>
 		</div>
