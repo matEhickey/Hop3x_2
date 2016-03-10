@@ -1,7 +1,7 @@
 <?php
 	
-	include("scaffoldUsers.php");
-	include("scaffoldProfesseur.php");
+	include("ControllerUtilisateurs.php");
+	include("ControllerProfesseur.php");
 	
 	include("../../commons/commonBegin.php");
 	

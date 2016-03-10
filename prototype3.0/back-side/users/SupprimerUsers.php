@@ -1,19 +1,17 @@
 <?php
 	include("../../commons/commonBegin.php");
 	include("../../commons/formadmin.php");
-	include("scaffoldUsers.php");
-	include("scaffoldProfesseur.php");
-	include("scaffoldEtudiant.php");
-	include("GenereteInfoUser.php");
+	include("ControllerUtilisateurs.php");
+	include("ControllerProfesseur.php");
+	include("ControllerEtudiant.php");
+	include("GenereInfoUtilisateurs.php");
 	
 ?>
 <?php
 	$id_del = $_POST['id'];
 
 		deleteUsers($id_del);
-		include("../../views/users/allUsersDelete.php");
-
-	
+		include("../../views/users/UtilisateursSupprimer.php");
 		//deleteProfesseur($id);
 		//deleteEtudiant($id);
 	

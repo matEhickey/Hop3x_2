@@ -1,16 +1,16 @@
 <?php
 	include("../../commons/commonBegin.php");
-	include("../../commons/formadmin.php");
-	include("../../back-side/users/scaffoldUsers.php");
-	include("../../back-side/users/scaffoldGroup.php");
+	include("formadmin.php");
+	include("../../back-side/users/ControllerUtilisateurs.php");
+	include("../../back-side/users/ControllerGroupe.php");
 	//include("../../back-side/users/CreateGroup.php");
-	include("../../commons/formgestiongroup.php");
+	include("formgestiongroup.php");
 	
-
+//ajouter nouvel utilisateur dans le groupe
 	
 ?>	
-	<script src = "../../js/SaveId.js"></script>
-	<form name "Ajouter" action = "../../back-side/users/AjouterDansGroup.php" method = "POST">
+	<script src = "../../js/SauvgarderID.js"></script>
+	<form name "Ajouter" action = "../../back-side/users/AjouterDansGroupe.php" method = "POST">
 	
 <?php 
 		$groupnom = $_POST['nom'];
@@ -87,7 +87,7 @@
 </form>
 
 <?php
-	include("../../commons/formadminend.php");
+	include("formadminend.php");
 	include("../../commons/commonEnd.php");
-	include("../../commons/formgestiongroupend.php");
+	include("formgestiongroupend.php");
 ?>
