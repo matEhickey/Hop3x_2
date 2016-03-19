@@ -486,6 +486,13 @@ section h3.section-subheading {
     min-height: 50px;
 }
 
+.table-responsive {
+	overflow-y : auto;
+	height : 400px;
+}
+
+
+
 .timeline>li:before,
 .timeline>li:after {
     content: " ";

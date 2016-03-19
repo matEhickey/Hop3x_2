@@ -14,19 +14,22 @@
 	
 <?php 
 		$groupnom = $_POST['nom'];
+		echo "Ajouter d'utilisateurs dans le groupe : {$groupnom}";
 		$validation = getGroupName();
+		
 		/*foreach($validation as $value => $key){
 		echo $key['nom'];
 		}*/
 		$y = TRUE;
 		$b = 0;
 		$i = 0;
-		
+
 		if (sizeof($validation)>0){
 			while ($y == TRUE && $i < count($validation)){
 				foreach($validation as $key => $value){
 					if($value['nom'] == $groupnom){
 						$y = FALSE;
+						break;
 					}
 					else{
 						$y = TRUE;
@@ -47,12 +50,11 @@
 		
 
 		$group = getIdGroupByNom($groupnom);
-		echo $group;
 		$gprofesseur = getUsers();
 		$a = count($gprofesseur);
 			echo '<div class=table-responsive>';
 			echo '<table class= table >';
-			echo '<caption alighn = centre> Choisi utilisateur qui vous voulez ajouter :</caption>';
+			echo '<caption alighn = centre> Choisi l\'utilisateur qui vous voulez ajouter :</caption>';
 			echo '<tr class = active>';
                 echo '<td>ID</td>';
                 echo '<td>LOGIN</td>';

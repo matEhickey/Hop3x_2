@@ -12,7 +12,7 @@
 
 		$gprofesseur = getUsers();
 		$a = count($gprofesseur);
-			echo '<div class="table-responsive">';
+			echo '<div class="table-responsive header-fixed">';
 			echo '<table class="table">';
 			echo '<caption alighn = centre> List des utilisateurs :</caption>';
 			echo '<tr class = active>';
