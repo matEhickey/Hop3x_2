@@ -114,4 +114,36 @@ function getGroupName(){
 	return($retour);
 }
 
+function getGroupNameById($id_group)
+{
+	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "	SELECT * FROM  `groupes` ";
+
+	$retour = [];
+	if ($statement = $conn->query($requete)) {
+		while($row = $statement->fetch(PDO::FETCH_ASSOC))
+		{
+			$temp = array("id" => $row['id'], "nom" => $row['nom']);
+			array_push($retour, $temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+
+	$result = "";
+	foreach($retour as $key => $value) {
+		if ($value['id'] == $id_group)
+		{
+			$result = $value['nom'];
+		}
+	}
+
+	$conn = null;
+	return($result);
+}
 ?>

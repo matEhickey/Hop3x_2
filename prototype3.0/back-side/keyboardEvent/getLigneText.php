@@ -1,16 +1,16 @@
 <?php	
 	include_once "eventsTextController.php";
 	
-	$event_id = $_GET['event_id'];
-	$text = $_GET['text'];
+	$event_id = $_POST['event_id'];
+	$text = $_POST['text'];
 	
 	
 	
 	
-	//var_dump($_GET);
+	//var_dump($_POST);
 
 
 	
-	echo createEventtext($event_id,$text);
+	createEventtext($event_id,$text);
 
 ?>

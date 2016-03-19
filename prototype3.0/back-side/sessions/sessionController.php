@@ -123,34 +123,71 @@ function deleteSession($id){
 	$conn=null;
 }
 
-function getAllUserForGroup($id_group)
+function getNameSessionById($id)
 {
 	$serverName = "localhost";
-	$username = "root";
-	$password = "abcde";
+	$usernam = "root";
 	$database = "hop3x";
-	$conn = new PDO('mysql:host=localhost;dbname='.$database, $username, $password);
-	$requete = "	SELECT * FROM  `rgroup` ";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+
+	$requete = "	SELECT * FROM  `session` ";
 	$retour = [];
-	if ($statement = $conn->query($requete)) {
-		while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-			$temp = array("id_user" => $row['id_user'],"id_group" => $row['id_group']);
-			array_push($retour,$temp);
+	if ($statement = $conn->query($requete)) 
+	{
+		while($row = $statement->fetch(PDO::FETCH_ASSOC))
+		{
+			$temp = array("id" => $row['id'], "name" => $row['name']);
+			array_push($retour, $temp);
 		}
 	}
 	else { 
 		die("fail requete");
 	}
-	$res = [];
+
+	$result = "";
 	foreach($retour as $key => $value) 
 	{
-		if ($value['id_group'] == $id_group)
+		if ($value['id'] == $id)
 		{
-			$temp = array("id_user" => $value['id_user']);
-			array_push($res, $temp);
+			$result = $value['name'];
 		}
 	}
+
 	$conn = null;
-	return($res);
+	return($result);
 }
+
+ function getIdSessionByName ($name)
+ {
+ 	$serverName = "localhost";
+	$usernam = "root";
+	$database = "hop3x";
+	$password = "abcde";
+	$conn = new PDO('mysql:host=localhost;dbname='.$database, $usernam, $password);
+	$requete = "	SELECT * FROM  `session` ";
+	$retour = [];
+	if ($statement = $conn->query($requete)) 
+	{
+		while($row = $statement->fetch(PDO::FETCH_ASSOC))
+		{
+			$temp = array("id" => $row['id'], "name" => $row['name']);
+			array_push($retour, $temp);
+		}
+	}
+	else { 
+		die("fail requete");
+	}
+	$result = "";
+	foreach($retour as $key => $value) 
+	{
+		if ($value['name'] == $name)
+		{
+			$result = $value['id'];
+		}
+	}
+
+	$conn = null;
+	return($result);
+ }
 ?>
