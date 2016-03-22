@@ -13,7 +13,14 @@
 	<form name "Ajouter" action = "../../back-side/users/AjouterDansGroupe.php" method = "POST">
 	
 <?php 
-		$groupnom = $_POST['nom'];
+		//$groupnom = $_POST['nom'];
+		if ($_POST['nom1'] == ""){
+			$groupnom = $_POST['nom'];
+		}
+		else{
+			$groupnom = $_POST['nom1'];
+		}
+		
 		echo "Ajouter d'utilisateurs dans le groupe : {$groupnom}";
 		$validation = getGroupName();
 		

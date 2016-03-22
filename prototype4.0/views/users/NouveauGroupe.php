@@ -15,13 +15,18 @@
 	<form name = "gestion" action = "../../views/users/UsersAjoutDansGroup.php" method = POST>
 				
 				<table class = "table">
-					<caption>Saisissez le nom de group</caption>
+					<caption>Saisissez le nom de groupe</caption>
 						<tr>
 							<td alighn = "left"><p><!--p><select><option><input type = "text" name = "nom"></option></select></p-->
+								<p> Creer le nouveau groupe : </p>
+								<input type = "text" name = "nom">
+								<p></p>
+								<p> ou choisir le nom du groupe qui existe : </p>
 								<?php
 								$group = getGroup();
 								?>
-								<select class="selectpicker" data-show-subtext="true" data-live-search="true" name="nom">
+								<select class="selectpicker" data-show-subtext="true" data-live-search="true" name="nom1">
+								<option value=""></option>
 								<?php	
 									foreach($group as $value => $key){
 										echo '<option>'.$key['nom'].'</option>';
@@ -29,7 +34,7 @@
 								?>
 								</select>
 							</td>
-							<td><input class="btn btn-primary btn-block" type ="submit" value = "Choisir" name = "Ajouter" onClick="location.href='../../views/users/UsersAjoutDansGroup.php';"></td>
+							<td><p></p><input class="btn btn-primary btn-block" type ="submit" value = "Choisir" name = "Ajouter" onClick="location.href='../../views/users/UsersAjoutDansGroup.php';"></td>
 						</tr>
 				</table>
 				

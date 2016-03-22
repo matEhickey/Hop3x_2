@@ -7,7 +7,7 @@
 body {
     overflow-x: hidden;
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #ddd;
+    background-color: #dadff4;
 }
 
 textarea {
@@ -20,10 +20,10 @@ textarea {
 
 .hop3xBox{
         
-        padding: 2%;
+        padding: 3%;
 
-background-color: #ccc;
-border: 2px solid #999999;
+background-color: #adb8e7;
+border: 2px solid #6f83d5;
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
 border-radius: 5px;
@@ -102,12 +102,17 @@ h6 {
 }
 
 .btn-primary {
-    border-color: #fff;
+    border-color: #6f83d5;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #111;
-    background-color: #ccc;
+    background-color: #8d9dde;
+	/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 5px #000000;
+-webkit-box-shadow: 0px 0px 5px #000000;
+box-shadow: 0px 0px 5px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
 }
 
 .btn-primary:hover,
@@ -115,8 +120,8 @@ h6 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    border-color: #000;
-    color: #fff;
+    border-color: #dadff4;
+    color: #6076d1;
     background-color: #ccc;
 }
 
